@@ -7,4 +7,5 @@ export { default as ClickCallback } from "./ClickCallback";
 export { default as Brush } from "./Brush";
 export { default as InteractiveText } from "./InteractiveText";
 export { default as InteractiveYCoordinate } from "./InteractiveYCoordinate";
+export { default as InteractiveXCoordinate } from "./InteractiveXCoordinate";
 export { default as DrawingObjectSelector } from "./DrawingObjectSelector";

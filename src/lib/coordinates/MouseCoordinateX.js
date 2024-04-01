@@ -137,4 +137,50 @@ function helper(props, moreProps) {
 	return coordinateProps;
 }
 
+export function getXCoordinate(y, displayValue, props, moreProps) {
+	const { width } = moreProps;
+
+	const { orient, at, rectWidth, rectHeight, dx } = props;
+	const { fill, opacity, fontFamily, fontSize, textFill, arrowWidth } = props;
+	const { stroke, strokeOpacity, strokeWidth } = props;
+
+	const x1 = 0, x2 = width;
+	const edgeAt = (at === "right")
+		? width
+		: 0;
+
+	const type = "horizontal";
+	const hideLine = true;
+
+	const coordinateProps = {
+		coordinate: displayValue,
+		show: true,
+		type,
+		orient,
+		edgeAt,
+		hideLine,
+		fill,
+		opacity,
+
+		fontFamily,
+		fontSize,
+		textFill,
+
+		stroke,
+		strokeOpacity,
+		strokeWidth,
+
+		rectWidth,
+		rectHeight,
+
+		arrowWidth,
+		dx,
+		x1,
+		x2,
+		y1: y,
+		y2: y,
+	};
+	return coordinateProps;
+}
+
 export default MouseCoordinateX;

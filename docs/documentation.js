@@ -107,6 +107,7 @@ const INTERACTIVE = {
 		require("./lib/page/GannFanPage").default,
 		require("./lib/page/TextPage").default,
 		require("./lib/page/InteractiveYCoordinatePage").default,
+		require("./lib/page/InteractiveXCoordinatePage").default,
 		require("./lib/page/ClickHandlerCallbackPage").default,
 		require("./lib/page/BrushSupportPage").default,
 	]
