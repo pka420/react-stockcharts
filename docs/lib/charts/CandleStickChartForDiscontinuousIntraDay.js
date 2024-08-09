@@ -6,7 +6,7 @@ import { format } from "d3-format";
 import { timeFormat } from "d3-time-format";
 
 
-import { ChartCanvas, Chart } from "react-stockcharts";
+import { ChartCanvas, Chart } from "react-stockcharts/lib/core";
 import {
 	BarSeries,
 	CandlestickSeries,
@@ -20,7 +20,7 @@ import {
 	MouseCoordinateY,
 } from "react-stockcharts/lib/coordinates";
 
-import { discontinuousTimeScaleProvider } from "react-stockcharts/lib/scale";
+import { discontinuousTimeScaleProvider } from "react-stockcharts/lib/scales";
 import { OHLCTooltip } from "react-stockcharts/lib/tooltip";
 import { fitWidth } from "react-stockcharts/lib/helper";
 import { last } from "react-stockcharts/lib/utils";

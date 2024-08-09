@@ -7,7 +7,7 @@ import { extent } from "d3-array";
 import React from "react";
 import PropTypes from "prop-types";
 
-import { ChartCanvas, Chart } from "react-stockcharts";
+import { ChartCanvas, Chart } from "react-stockcharts/lib/core";
 import { ScatterSeries, CircleMarker } from "react-stockcharts/lib/series";
 import { XAxis, YAxis } from "react-stockcharts/lib/axes";
 import {

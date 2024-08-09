@@ -1,6 +1,6 @@
 
 ```js
-import { ChartCanvas, Chart, series } from "react-stockcharts";
+import { ChartCanvas, Chart, series } from "react-stockcharts/lib/core";
 
 const { LineSeries, ScatterSeries, CircleMarker, SquareMarker, TriangleMarker } = series;
 ```

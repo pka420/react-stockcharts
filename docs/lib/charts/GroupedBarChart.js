@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { scaleOrdinal, schemeCategory10, scalePoint } from  "d3-scale";
 import { set } from "d3-collection";
 
-import { ChartCanvas, Chart } from "react-stockcharts";
+import { ChartCanvas, Chart } from "react-stockcharts/lib/core";
 import {
 	GroupedBarSeries,
 } from "react-stockcharts/lib/series";

@@ -5,7 +5,7 @@ import { timeFormat } from "d3-time-format";
 import React from "react";
 import PropTypes from "prop-types";
 
-import { ChartCanvas, Chart } from "react-stockcharts";
+import { ChartCanvas, Chart } from "react-stockcharts/lib/core";
 import {
 	BarSeries,
 	AreaSeries,
@@ -22,9 +22,9 @@ import {
 	MouseCoordinateY,
 } from "react-stockcharts/lib/coordinates";
 
-import { discontinuousTimeScaleProviderBuilder } from "react-stockcharts/lib/scale";
+import { discontinuousTimeScaleProviderBuilder } from "react-stockcharts/lib/scales";
 import { OHLCTooltip, MovingAverageTooltip, MACDTooltip } from "react-stockcharts/lib/tooltip";
-import { ema, sma, macd } from "react-stockcharts/lib/indicator";
+import { ema, sma, macd } from "react-stockcharts/lib/indicators";
 import { fitWidth } from "react-stockcharts/lib/helper";
 
 function getMaxUndefined(calculators) {

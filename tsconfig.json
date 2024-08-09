@@ -1,26 +1,20 @@
 {
-    "compilerOptions": {
-        "allowSyntheticDefaultImports": true,
-        "declaration": true,
-        "experimentalDecorators": true,
-        "forceConsistentCasingInFileNames": true,
-        "jsx": "react",
-        "module": "esnext",
-        "moduleResolution": "node",
-        "noImplicitAny": true,
-        "noImplicitThis": true,
-        "noUnusedLocals": true,
-        "outDir": "lib",
-        "sourceMap": true,
-        "strict": true,
-        "target": "es2017"
-    },
-    "include": [
-        "src"
-    ],
-    "exclude": [
-        "lib",
-        "**/__tests__/**"
-    ]
+  "compilerOptions": {
+    "outDir": "./dist",
+    "module": "ESNext",
+    "target": "ES5",
+    "declaration": true,
+    "sourceMap": true,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "*": ["node_modules/*"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
-

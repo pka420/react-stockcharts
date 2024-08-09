@@ -6,7 +6,7 @@ import { max } from "d3-array";
 import React from "react";
 import PropTypes from "prop-types";
 
-import { ChartCanvas, Chart } from "react-stockcharts";
+import { ChartCanvas, Chart } from "react-stockcharts/lib/core";
 import {
 	StackedBarSeries,
 } from "react-stockcharts/lib/series";

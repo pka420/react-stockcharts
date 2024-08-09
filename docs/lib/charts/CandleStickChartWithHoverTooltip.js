@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { format } from "d3-format";
 import { timeFormat } from "d3-time-format";
 
-import { ChartCanvas, Chart } from "react-stockcharts";
+import { ChartCanvas, Chart } from "react-stockcharts/lib/core";
 import {
 	BarSeries,
 	CandlestickSeries,
@@ -13,9 +13,9 @@ import {
 import { XAxis, YAxis } from "react-stockcharts/lib/axes";
 import { EdgeIndicator } from "react-stockcharts/lib/coordinates";
 
-import { discontinuousTimeScaleProvider } from "react-stockcharts/lib/scale";
+import { discontinuousTimeScaleProvider } from "react-stockcharts/lib/scales";
 import { HoverTooltip } from "react-stockcharts/lib/tooltip";
-import { ema } from "react-stockcharts/lib/indicator";
+import { ema } from "react-stockcharts/lib/indicators";
 import { fitWidth } from "react-stockcharts/lib/helper";
 import { last } from "react-stockcharts/lib/utils";
 

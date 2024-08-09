@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { format } from "d3-format";
 import { timeFormat } from "d3-time-format";
 
-import { ChartCanvas, Chart } from "react-stockcharts";
+import { ChartCanvas, Chart } from "react-stockcharts/lib/core";
 import {
 	CandlestickSeries,
 	LineSeries,
@@ -19,10 +19,10 @@ import {
 	MouseCoordinateY,
 } from "react-stockcharts/lib/coordinates";
 
-import { LabelAnnotation, Label, Annotate } from "react-stockcharts/lib/annotation";
-import { discontinuousTimeScaleProvider } from "react-stockcharts/lib/scale";
+import { LabelAnnotation, Label, Annotate } from "react-stockcharts/lib/annotations";
+import { discontinuousTimeScaleProvider } from "react-stockcharts/lib/scales";
 import { OHLCTooltip, MovingAverageTooltip } from "react-stockcharts/lib/tooltip";
-import { ema } from "react-stockcharts/lib/indicator";
+import { ema } from "react-stockcharts/lib/indicators";
 import { fitWidth } from "react-stockcharts/lib/helper";
 import { last } from "react-stockcharts/lib/utils";
 

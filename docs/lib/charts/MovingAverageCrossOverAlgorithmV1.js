@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { format } from "d3-format";
 import { timeFormat } from "d3-time-format";
 
-import { ChartCanvas, Chart } from "react-stockcharts";
+import { ChartCanvas, Chart } from "react-stockcharts/lib/core";
 import {
 	CandlestickSeries,
 	LineSeries,
@@ -19,19 +19,19 @@ import {
 	MouseCoordinateY,
 } from "react-stockcharts/lib/coordinates";
 
-import { discontinuousTimeScaleProvider } from "react-stockcharts/lib/scale";
+import { discontinuousTimeScaleProvider } from "react-stockcharts/lib/scales";
 import {
 	OHLCTooltip,
 	MovingAverageTooltip,
 } from "react-stockcharts/lib/tooltip";
-import { ema } from "react-stockcharts/lib/indicator";
+import { ema } from "react-stockcharts/lib/indicators";
 import { fitWidth } from "react-stockcharts/lib/helper";
-import algo from "react-stockcharts/lib/algorithm";
+import algo from "react-stockcharts/lib/indicators";
 import {
 	Label,
 	Annotate,
 	LabelAnnotation,
-} from "react-stockcharts/lib/annotation";
+} from "react-stockcharts/lib/annotations";
 import { last } from "react-stockcharts/lib/utils";
 
 class MovingAverageCrossOverAlgorithmV1 extends React.Component {

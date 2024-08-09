@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import { TypeChooser } from "react-stockcharts/lib/helper";
 

@@ -8,11 +8,11 @@ import {
 	Modal,
 	Button,
 	FormGroup,
-	ControlLabel,
+	Form,
 	FormControl,
 } from "react-bootstrap";
 
-import { ChartCanvas, Chart } from "react-stockcharts";
+import { ChartCanvas, Chart } from "react-stockcharts/lib/core";
 import { CandlestickSeries, BarSeries, MACDSeries } from "react-stockcharts/lib/series";
 import { XAxis, YAxis } from "react-stockcharts/lib/axes";
 import {
@@ -22,9 +22,9 @@ import {
 	MouseCoordinateX
 } from "react-stockcharts/lib/coordinates";
 
-import { discontinuousTimeScaleProvider } from "react-stockcharts/lib/scale";
+import { discontinuousTimeScaleProvider } from "react-stockcharts/lib/scales";
 import { OHLCTooltip, MACDTooltip } from "react-stockcharts/lib/tooltip";
-import { macd } from "react-stockcharts/lib/indicator";
+import { macd } from "react-stockcharts/lib/indicators";
 
 import { fitWidth } from "react-stockcharts/lib/helper";
 import { InteractiveText, DrawingObjectSelector } from "react-stockcharts/lib/interactive";
@@ -73,7 +73,7 @@ class Dialog extends React.Component {
 				<Modal.Body>
 					<form>
 						<FormGroup controlId="text">
-							<ControlLabel>Text</ControlLabel>
+							<Form.Label>Text</Form.Label>
 							<FormControl type="text" value={text} onChange={this.handleChange} />
 						</FormGroup>
 					</form>

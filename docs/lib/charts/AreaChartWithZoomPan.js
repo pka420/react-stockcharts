@@ -5,12 +5,12 @@ import PropTypes from "prop-types";
 import { format } from "d3-format";
 import { timeFormat } from "d3-time-format";
 
-import { ChartCanvas, Chart } from "react-stockcharts";
+import { ChartCanvas, Chart } from "react-stockcharts/lib/core";
 import {
 	BarSeries,
 	AreaSeries,
 } from "react-stockcharts/lib/series";
-import { discontinuousTimeScaleProvider } from "react-stockcharts/lib/scale";
+import { discontinuousTimeScaleProvider } from "react-stockcharts/lib/scales";
 import { XAxis, YAxis } from "react-stockcharts/lib/axes";
 import {
 	CrossHairCursor,

@@ -39,7 +39,27 @@ function buildConfig(mode) {
                 { test: /\.jpg$/, use: "file-loader" },
                 { test: /\.(png|svg)$/, use: "url-loader?mimetype=image/png" },
                 { test: /\.md$/, use: ["html-loader", "remarkable-loader"] },
-                { test: /\.scss$/, use: ["style-loader", "css-loader", "autoprefixer-loader", "sass-loader?outputStyle=expanded"] },
+                { test: /\.scss$/, use: [
+                    'style-loader', {
+                      loader: 'css-loader',
+                      options: {
+                        sourceMap: false // Disable source maps
+                      }
+                    },
+                    {
+                      loader: 'autoprefixer-loader',
+                      options: {
+                        sourceMap: false // Disable source maps
+                      }
+                    },
+                    {
+                      loader: 'sass-loader',
+                      options: {
+                        sourceMap: false // Disable source maps
+                      }
+                    }
+                  ]
+                },
                 { test: /\.(ts|js|tsx|jsx)$/, use: ["babel-loader"], exclude: /node_modules/ }
 			])
 		},
@@ -69,6 +89,26 @@ function buildConfig(mode) {
 				inject: false,
 				page: "index",
 				mode,
+                 templateParameters: (compilation, assets, assetTags, options) => {
+    const chunks = compilation.chunks.reduce((acc, chunk) => {
+      acc[chunk.name] = {
+        entry: assets.js.find(js => js.includes(chunk.name)),
+      };
+      return acc;
+    }, {});
+
+    return {
+      htmlWebpackPlugin: {
+        options: {
+          mode: options.mode || "production",
+          page: options.page || "index",
+        },
+        files: {
+          chunks
+        }
+      }
+    };
+  },
 				filename: "index.html"
 			}),
 			new HtmlWebpackPlugin({
@@ -76,6 +116,26 @@ function buildConfig(mode) {
 				inject: false,
 				page: "documentation",
 				mode,
+                 templateParameters: (compilation, assets, assetTags, options) => {
+    const chunks = compilation.chunks.reduce((acc, chunk) => {
+      acc[chunk.name] = {
+        entry: assets.js.find(js => js.includes(chunk.name)),
+      };
+      return acc;
+    }, {});
+
+    return {
+      htmlWebpackPlugin: {
+        options: {
+          mode: options.mode || "production",
+          page: options.page || "index",
+        },
+        files: {
+          chunks
+        }
+      }
+    };
+  },
 				filename: "documentation.html"
 			}),
 			new webpack.LoaderOptionsPlugin({

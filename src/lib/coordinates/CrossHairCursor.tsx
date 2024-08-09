@@ -5,7 +5,7 @@ import {
     GenericComponent,
     getMouseCanvas,
     ChartCanvasContext,
-} from "@react-financial-charts/core";
+} from "../core";
 
 const defaultCustomX = (props: CrossHairCursorProps, moreProps: any) => {
     const { xScale, xAccessor, currentItem, mouseXY } = moreProps;

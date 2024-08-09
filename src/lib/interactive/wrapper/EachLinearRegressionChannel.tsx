@@ -1,4 +1,4 @@
-import { getCurrentItem } from "@react-financial-charts/core/lib/utils/ChartDataUtil";
+import { getCurrentItem } from "../../core/utils/ChartDataUtil";
 import * as React from "react";
 import { isHover, saveNodeType } from "../utils";
 import { HoverTextNearMouse, ClickableCircle } from "../components";

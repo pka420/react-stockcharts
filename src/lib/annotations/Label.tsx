@@ -1,4 +1,4 @@
-import { GenericComponent, functor, ChartCanvasContext } from "@react-financial-charts/core";
+import { GenericComponent, functor, ChartCanvasContext } from "../core";
 import { ScaleContinuousNumeric } from "d3-scale";
 import * as React from "react";
 
