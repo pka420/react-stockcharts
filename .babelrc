@@ -1,0 +1,43 @@
+{
+  "presets": [
+    "@babel/preset-react",
+    "@babel/preset-env",
+    "@babel/typescript"
+  ],
+  "plugins": [
+    "@babel/plugin-transform-flow-strip-types",
+    "@babel/plugin-transform-class-properties",
+    "@babel/plugin-transform-object-rest-spread"
+  ],
+  "env": {
+    "cjs": {
+      "presets": [["@babel/preset-env"]]
+    },
+    "es": {
+      "presets": [
+        ["@babel/preset-env", { "modules": false }]
+      ]
+    },
+    "watch": {
+      "presets": [
+        ["@babel/preset-env", {
+          "targets": {
+            "chrome": 90
+          },
+          "modules": false
+        }]
+      ]
+    },
+    "server": {
+      "presets": [
+        ["@babel/preset-env", {
+          "targets": {
+            "node": "current"
+          },
+          "loose": true
+        }]
+      ]
+    }
+  }
+}
+
