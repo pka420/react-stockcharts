@@ -48,9 +48,6 @@ function buildConfig(mode) {
                     },
                     {
                       loader: 'autoprefixer-loader',
-                      options: {
-                        sourceMap: false // Disable source maps
-                      }
                     },
                     {
                       loader: 'sass-loader',
@@ -87,55 +84,47 @@ function buildConfig(mode) {
 			new HtmlWebpackPlugin({
 				template: "./docs/pageTemplate.js",
 				inject: false,
-				page: "index",
-				mode,
-                 templateParameters: (compilation, assets, assetTags, options) => {
-    const chunks = compilation.chunks.reduce((acc, chunk) => {
-      acc[chunk.name] = {
-        entry: assets.js.find(js => js.includes(chunk.name)),
-      };
-      return acc;
-    }, {});
-
-    return {
-      htmlWebpackPlugin: {
-        options: {
-          mode: options.mode || "production",
-          page: options.page || "index",
-        },
-        files: {
-          chunks
-        }
-      }
-    };
-  },
+                templateParameters: (compilation, assets, assetTags, options) => {
+                    const chunks = compilation.chunks.reduce((acc, chunk) => {
+                        acc[chunk.name] = {
+                        entry: assets.js.find(js => js.includes(chunk.name)),
+                        };
+                        return acc;
+                    }, {});
+                    return {
+                        htmlWebpackPlugin: {
+                        options: {
+                            mode: options.mode || "production",
+                            page: options.page || "index",
+                        },
+                        files: {
+                            chunks
+                        }
+                    }};
+                },
 				filename: "index.html"
 			}),
 			new HtmlWebpackPlugin({
 				template: "./docs/pageTemplate.js",
 				inject: false,
-				page: "documentation",
-				mode,
-                 templateParameters: (compilation, assets, assetTags, options) => {
-    const chunks = compilation.chunks.reduce((acc, chunk) => {
-      acc[chunk.name] = {
-        entry: assets.js.find(js => js.includes(chunk.name)),
-      };
-      return acc;
-    }, {});
-
-    return {
-      htmlWebpackPlugin: {
-        options: {
-          mode: options.mode || "production",
-          page: options.page || "index",
-        },
-        files: {
-          chunks
-        }
-      }
-    };
-  },
+                templateParameters: (compilation, assets, assetTags, options) => {
+                    const chunks = compilation.chunks.reduce((acc, chunk) => {
+                        acc[chunk.name] = {
+                        entry: assets.js.find(js => js.includes(chunk.name)),
+                        };
+                        return acc;
+                    }, {});
+                    return {
+                        htmlWebpackPlugin: {
+                        options: {
+                            mode: options.mode || "production",
+                            page: options.page || "documentation",
+                        },
+                        files: {
+                            chunks
+                        }
+                    }};
+                },
 				filename: "documentation.html"
 			}),
 			new webpack.LoaderOptionsPlugin({

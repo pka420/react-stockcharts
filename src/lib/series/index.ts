@@ -7,7 +7,7 @@ export * from "./LineSeries";
 export * from "./CandlestickSeries";
 export * from "./OHLCSeries";
 export * from "./BarSeries";
-export { StackedBarSeries, StackedBarSeriesProps } from "./StackedBarSeries";
+export * from "./StackedBarSeries";
 export * from "./GroupedBarSeries";
 export * from "./KagiSeries";
 export * from "./PointAndFigureSeries";

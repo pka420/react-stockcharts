@@ -32,7 +32,7 @@ import {
 } from "react-stockcharts/lib/tooltip";
 import { ema, stochasticOscillator, bollingerBand } from "react-stockcharts/lib/indicators";
 import { fitWidth } from "react-stockcharts/lib/helper";
-import { last } from "react-stockcharts/lib/utils";
+import { last } from "react-stockcharts/lib/core";
 
 const bbAppearance = {
 	stroke: {

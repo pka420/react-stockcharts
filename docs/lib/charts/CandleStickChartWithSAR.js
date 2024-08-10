@@ -25,7 +25,7 @@ import {
 } from "react-stockcharts/lib/tooltip";
 import { sar } from "react-stockcharts/lib/indicators";
 import { fitWidth } from "react-stockcharts/lib/helper";
-import { last } from "react-stockcharts/lib/utils";
+import { last } from "react-stockcharts/lib/core";
 
 class CandleStickChartWithSAR extends React.Component {
 	render() {

@@ -28,7 +28,7 @@ import {
 } from "react-stockcharts/lib/tooltip";
 import { ema, heikinAshi, sma } from "react-stockcharts/lib/indicators";
 import { fitWidth } from "react-stockcharts/lib/helper";
-import { last } from "react-stockcharts/lib/utils";
+import { last } from "react-stockcharts/lib/core";
 
 class HeikinAshi extends React.Component {
 	render() {

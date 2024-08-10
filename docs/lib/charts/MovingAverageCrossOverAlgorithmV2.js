@@ -26,7 +26,7 @@ import {
 } from "react-stockcharts/lib/tooltip";
 import { ema } from "react-stockcharts/lib/indicators";
 import { fitWidth } from "react-stockcharts/lib/helper";
-import algo from "react-stockcharts/lib/indicators";
+import { algo } from "react-stockcharts/lib/indicators";
 import {
 	Label,
 	Annotate,
@@ -34,7 +34,7 @@ import {
 	buyPath,
 	sellPath,
 } from "react-stockcharts/lib/annotations";
-import { last } from "react-stockcharts/lib/utils";
+import { last } from "react-stockcharts/lib/core";
 
 class MovingAverageCrossOverAlgorithmV2 extends React.Component {
 	render() {

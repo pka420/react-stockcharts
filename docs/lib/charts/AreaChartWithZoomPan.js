@@ -20,7 +20,7 @@ import {
 
 import { SingleValueTooltip } from "react-stockcharts/lib/tooltip";
 import { fitWidth } from "react-stockcharts/lib/helper";
-import { last } from "react-stockcharts/lib/utils";
+import { last } from "react-stockcharts/lib/core";
 
 class AreaChartWithEdge extends React.Component {
 	render() {

@@ -29,7 +29,7 @@ import { macd } from "react-stockcharts/lib/indicators";
 import { fitWidth } from "react-stockcharts/lib/helper";
 import { InteractiveYCoordinate, DrawingObjectSelector } from "react-stockcharts/lib/interactive";
 import { getMorePropsForChart } from "react-stockcharts/lib/interactive/utils";
-import { head, last, toObject } from "react-stockcharts/lib/utils";
+import { head, last, toObject } from "react-stockcharts/lib/core";
 import {
 	saveInteractiveNodes,
 	getInteractiveNodes,

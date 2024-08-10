@@ -1,7 +1,7 @@
 
 
 import saveAsPng from "save-svg-as-png";
-import { isDefined } from "../utils";
+import { isDefined } from "../core";
 
 const dx = 0;
 const dy = 0;

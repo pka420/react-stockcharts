@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 
-import { isDefined } from "../utils";
+import { isDefined } from "../core";
 
 function getDisplayName(Series) {
 	const name = Series.displayName || Series.name || "Series";

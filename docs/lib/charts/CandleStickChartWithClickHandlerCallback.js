@@ -27,7 +27,7 @@ import { OHLCTooltip, MovingAverageTooltip, MACDTooltip } from "react-stockchart
 import { ema, sma, macd } from "react-stockcharts/lib/indicators";
 import { fitWidth } from "react-stockcharts/lib/helper";
 import { ClickCallback } from "react-stockcharts/lib/interactive";
-import { last } from "react-stockcharts/lib/utils";
+import { last } from "react-stockcharts/lib/core";
 
 const macdAppearance = {
 	stroke: {

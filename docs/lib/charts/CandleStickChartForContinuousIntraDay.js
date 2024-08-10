@@ -22,7 +22,7 @@ import {
 
 import { OHLCTooltip } from "react-stockcharts/lib/tooltip";
 import { fitWidth } from "react-stockcharts/lib/helper";
-import { last } from "react-stockcharts/lib/utils";
+import { last } from "react-stockcharts/lib/core";
 
 class CandleStickChartForContinuousIntraDay extends React.Component {
 	render() {

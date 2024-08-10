@@ -24,7 +24,7 @@ import { discontinuousTimeScaleProvider } from "react-stockcharts/lib/scales";
 import { OHLCTooltip, MovingAverageTooltip } from "react-stockcharts/lib/tooltip";
 import { ema } from "react-stockcharts/lib/indicators";
 import { fitWidth } from "react-stockcharts/lib/helper";
-import { last } from "react-stockcharts/lib/utils";
+import { last } from "react-stockcharts/lib/core";
 
 class CandleStickChartWithAnnotation extends React.Component {
 	render() {

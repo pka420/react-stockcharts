@@ -23,7 +23,7 @@ import {
 	OHLCTooltip,
 } from "react-stockcharts/lib/tooltip";
 import { fitWidth } from "react-stockcharts/lib/helper";
-import { last } from "react-stockcharts/lib/utils";
+import { last } from "react-stockcharts/lib/core";
 
 class CandleStickChartWithZoomPan extends React.Component {
 	constructor(props) {

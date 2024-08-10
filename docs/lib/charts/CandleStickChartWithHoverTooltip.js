@@ -17,7 +17,7 @@ import { discontinuousTimeScaleProvider } from "react-stockcharts/lib/scales";
 import { HoverTooltip } from "react-stockcharts/lib/tooltip";
 import { ema } from "react-stockcharts/lib/indicators";
 import { fitWidth } from "react-stockcharts/lib/helper";
-import { last } from "react-stockcharts/lib/utils";
+import { last } from "react-stockcharts/lib/core";
 
 const dateFormat = timeFormat("%Y-%m-%d");
 const numberFormat = format(".2f");

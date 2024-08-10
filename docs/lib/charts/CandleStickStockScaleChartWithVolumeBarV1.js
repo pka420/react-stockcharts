@@ -13,7 +13,7 @@ import { XAxis, YAxis } from "react-stockcharts/lib/axes";
 
 import { discontinuousTimeScaleProvider } from "react-stockcharts/lib/scales";
 import { fitWidth } from "react-stockcharts/lib/helper";
-import { last } from "react-stockcharts/lib/utils";
+import { last } from "react-stockcharts/lib/core";
 
 class CandleStickStockScaleChartWithVolumeBarV1 extends React.Component {
 	render() {

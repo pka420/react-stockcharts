@@ -25,7 +25,7 @@ import { discontinuousTimeScaleProvider } from "react-stockcharts/lib/scales";
 import { OHLCTooltip, MovingAverageTooltip, BollingerBandTooltip } from "react-stockcharts/lib/tooltip";
 import { ema, sma, bollingerBand } from "react-stockcharts/lib/indicators";
 import { fitWidth } from "react-stockcharts/lib/helper";
-import { last } from "react-stockcharts/lib/utils";
+import { last } from "react-stockcharts/lib/core";
 
 const bbStroke = {
 	top: "#964B00",

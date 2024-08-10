@@ -31,7 +31,7 @@ import {
 import { ema, macd, sma } from "react-stockcharts/lib/indicators";
 import { FibonacciRetracement, DrawingObjectSelector } from "react-stockcharts/lib/interactive";
 import { fitWidth } from "react-stockcharts/lib/helper";
-import { last, toObject } from "react-stockcharts/lib/utils";
+import { last, toObject } from "react-stockcharts/lib/core";
 import {
 	saveInteractiveNodes,
 	getInteractiveNodes,

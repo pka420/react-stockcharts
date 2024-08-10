@@ -27,7 +27,7 @@ import { OHLCTooltip, MovingAverageTooltip, MACDTooltip } from "react-stockchart
 import { ema, sma, macd } from "react-stockcharts/lib/indicators";
 import { fitWidth } from "react-stockcharts/lib/helper";
 import { Brush } from "react-stockcharts/lib/interactive";
-import { last, isDefined } from "react-stockcharts/lib/utils";
+import { last, isDefined } from "react-stockcharts/lib/core";
 import {
 	saveInteractiveNode,
 } from "./interactiveutils";

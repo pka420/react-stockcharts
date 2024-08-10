@@ -8,10 +8,10 @@ import { timeFormat } from "d3-time-format";
 import { ChartCanvas, Chart } from "react-stockcharts/lib/core";
 import {
 	ScatterSeries,
+	LineSeries,
 	SquareMarker,
 	TriangleMarker,
 	CircleMarker,
-	LineSeries,
 } from "react-stockcharts/lib/series";
 import { XAxis, YAxis } from "react-stockcharts/lib/axes";
 import {
@@ -25,7 +25,7 @@ import {
 	OHLCTooltip,
 } from "react-stockcharts/lib/tooltip";
 import { fitWidth } from "react-stockcharts/lib/helper";
-import { last } from "react-stockcharts/lib/utils";
+import { last } from "react-stockcharts/lib/core";
 
 class LineAndScatterChart extends React.Component {
 	render() {

@@ -2,7 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import PureComponent from "./core/utils/PureComponent";
 
-import { hexToRGBA, isDefined } from "./utils";
+import { isDefined } from "./core";
+import { hexToRGBA } from "./utils";
 
 class BackgroundText extends PureComponent {
 	componentDidMount() {
