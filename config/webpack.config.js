@@ -67,13 +67,6 @@ function buildConfig(mode) {
 			new ProgressBarPlugin(),
 			new webpack.NoEmitOnErrorsPlugin(),
 
-			ifDocs(new webpack.DefinePlugin({
-				"process.env": {
-					// This has effect on the react lib size
-					NODE_ENV: JSON.stringify("production"),
-				},
-			})),
-			// ifProd(new webpack.optimize.DedupePlugin()),
 			ifDocs(new TerserPlugin({
                 terserOptions: {
 				    compress: {
@@ -85,7 +78,7 @@ function buildConfig(mode) {
 				template: "./docs/pageTemplate.js",
 				inject: false,
                 templateParameters: (compilation, assets, assetTags, options) => {
-                    const chunks = compilation.chunks.reduce((acc, chunk) => {
+                    const chunks = Array.from(compilation.chunks).reduce((acc, chunk) => {
                         acc[chunk.name] = {
                         entry: assets.js.find(js => js.includes(chunk.name)),
                         };
@@ -94,8 +87,8 @@ function buildConfig(mode) {
                     return {
                         htmlWebpackPlugin: {
                         options: {
-                            mode: options.mode || "production",
-                            page: options.page || "index",
+                            mode: options.mode || "docs",
+                            page: "index",
                         },
                         files: {
                             chunks
@@ -108,7 +101,7 @@ function buildConfig(mode) {
 				template: "./docs/pageTemplate.js",
 				inject: false,
                 templateParameters: (compilation, assets, assetTags, options) => {
-                    const chunks = compilation.chunks.reduce((acc, chunk) => {
+                    const chunks = Array.from(compilation.chunks).reduce((acc, chunk) => {
                         acc[chunk.name] = {
                         entry: assets.js.find(js => js.includes(chunk.name)),
                         };
@@ -117,8 +110,8 @@ function buildConfig(mode) {
                     return {
                         htmlWebpackPlugin: {
                         options: {
-                            mode: options.mode || "production",
-                            page: options.page || "documentation",
+                            mode: options.mode || "docs",
+                            page: "documentation",
                         },
                         files: {
                             chunks
@@ -132,10 +125,6 @@ function buildConfig(mode) {
 			}),
 		]),
 		devServer,
-		externals: {
-			"react": "React",
-			"react-dom": "ReactDOM",
-		},
 		resolve: {
 			extensions: [".ts", ".tsx", ".js", ".scss", ".md"],
 			alias: {

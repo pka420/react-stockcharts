@@ -130,7 +130,6 @@ function compressString(string) {
 	string = string.replace(/_+/g, "_");
 	string = string.replace(/[.]/g, "");
 	string = string.toLowerCase();
-	// console.log(string);
 	return string;
 }
 
@@ -219,7 +218,6 @@ function renderPage(data, dataFull, intraDayContinuous, intraDayDiscontinuous, c
 
 	const firstPage = (selectedPage.length === 0) ? pages[0] : selectedPage[0];
 
-	// console.log(selected, selectedPage, firstPage);
 	class ExamplesPage extends React.Component {
 		constructor(props) {
 			super(props);

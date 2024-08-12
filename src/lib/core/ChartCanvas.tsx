@@ -1,6 +1,6 @@
 import { extent as d3Extent, max, min } from "d3-array";
 import { ScaleContinuousNumeric, ScaleTime } from "d3-scale";
-import * as React from "react";
+import React from 'react';
 import { clearCanvas, functor, head, identity, isDefined, isNotDefined, last, shallowEqual } from "./utils";
 import { IZoomAnchorOptions, mouseBasedZoomAnchor } from "./zoom";
 import {
@@ -115,6 +115,7 @@ export const chartCanvasContextDefaultValue: ChartCanvasContextType<number | Dat
     xAccessor: () => 0,
     xScale: noop,
 };
+
 export const ChartCanvasContext =
     React.createContext<ChartCanvasContextType<number | Date>>(chartCanvasContextDefaultValue);
 

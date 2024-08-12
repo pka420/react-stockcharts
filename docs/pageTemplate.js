@@ -42,7 +42,7 @@ function getIndexContent() {
 					</div>
 					<div class="col-md-4">
 						<div class="pull-right top-spacing">
-							<a href="https://github.com/rrag/react-stockcharts/lib/core" class="btn btn-lg button"><small>View project on</small><br/> GitHub</a>
+							<a href="https://github.com/pka420/react-stockcharts/" class="btn btn-lg button"><small>View project on</small><br/> GitHub</a>
 						</div>
 					</div>
 				</div>
@@ -109,7 +109,6 @@ module.exports = function(params) {
 		${page === "index"
 			? `<script type="text/javascript" src="${chunks["react-stockcharts-home"].entry}"></script>`
 			: `<script type="text/javascript" src="${chunks["react-stockcharts-documentation"].entry}"></script>`}
-
 		${getDevServerJs(mode)}
 	</body>
 </html>`;
