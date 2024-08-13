@@ -8,12 +8,16 @@ import Section from "lib/section";
 import VolumeProfileBySessionChart from "lib/charts/VolumeProfileBySessionChart";
 
 class VolumeProfileBySessionPage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.myRef = React.createRef();
+    }
 	render() {
 		return (
 			<ContentSection title={VolumeProfileBySessionPage.title}>
 				<Row>
 					<Section colSpan={2}>
-						<TypeChooser ref="container">
+						<TypeChooser ref={this.myRef}>
 							{(type) => (<VolumeProfileBySessionChart data={this.props.lotsOfData} type={type} />)}
 						</TypeChooser>
 					</Section>

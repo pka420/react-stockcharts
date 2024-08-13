@@ -1,5 +1,6 @@
 
-import { scaleOrdinal, schemeCategory10, scaleLinear, scalePoint } from  "d3-scale";
+import { scaleOrdinal,  scaleLinear, scalePoint } from  "d3-scale";
+import { schemeCategory10 } from  "d3-scale-chromatic";
 import { set } from "d3-collection";
 import { max } from "d3-array";
 

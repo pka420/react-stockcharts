@@ -10,12 +10,16 @@ import Section from "lib/section";
 import BubbleChart from "lib/charts/BubbleChart";
 
 class BubbleChartPage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.myRef = React.createRef();
+    }
 	render() {
 		return (
 			<ContentSection title={BubbleChartPage.title}>
 				<Row>
 					<Section colSpan={2}>
-						<TypeChooser ref="container">
+						<TypeChooser ref={this.myRef}>
 							{(type) => (<BubbleChart data={this.props.bubbleData} type={type} />)}
 						</TypeChooser>
 					</Section>

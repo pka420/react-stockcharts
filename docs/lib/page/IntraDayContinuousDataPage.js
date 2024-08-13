@@ -10,13 +10,17 @@ import Section from "lib/section";
 import CandleStickChartForContinuousIntraDay from "lib/charts/CandleStickChartForContinuousIntraDay";
 
 class IntraDayContinuousDataPage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.myRef = React.createRef();
+    }
 
 	render() {
 		return (
 			<ContentSection title={IntraDayContinuousDataPage.title}>
 				<Row>
 					<Section colSpan={2}>
-						<TypeChooser ref="container">
+						<TypeChooser ref={this.myRef}>
 							{(type) => (<CandleStickChartForContinuousIntraDay data={this.props.intraDayContinuousData} type={type} />)}
 						</TypeChooser>
 					</Section>

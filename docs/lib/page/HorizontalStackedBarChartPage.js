@@ -10,12 +10,16 @@ import Section from "lib/section";
 import HorizontalStackedBarChart from "lib/charts/HorizontalStackedBarChart";
 
 class HorizontalBarChartPage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.myRef = React.createRef();
+    }
 	render() {
 		return (
 			<ContentSection title={HorizontalBarChartPage.title}>
 				<Row>
 					<Section colSpan={2}>
-						<TypeChooser ref="container">
+						<TypeChooser ref={this.myRef}>
 							{(type) => (<HorizontalStackedBarChart data={this.props.horizontalGroupedBarData} type={type} />)}
 						</TypeChooser>
 					</Section>

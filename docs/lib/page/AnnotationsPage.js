@@ -8,12 +8,16 @@ import Section from "lib/section";
 import CandleStickChartWithAnnotation from "lib/charts/CandleStickChartWithAnnotation";
 
 class AnnotationsPage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.myRef = React.createRef();
+    }
 	render() {
 		return (
 			<ContentSection title={AnnotationsPage.title}>
 				<Row>
 					<Section colSpan={2}>
-						<TypeChooser ref="container">
+						<TypeChooser ref={this.myRef}>
 							{(type) => (<CandleStickChartWithAnnotation  data={this.props.someData} type={type} />)}
 						</TypeChooser>
 					</Section>

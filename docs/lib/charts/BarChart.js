@@ -28,8 +28,8 @@ class BarChart extends React.Component {
 				padding={1}
 			>
 				<Chart id={1} yExtents={d => [0, d.y]}>
-					<XAxis axisAt="bottom" orient="bottom" />
-					<YAxis axisAt="left" orient="left" />
+					<XAxis axisAt="bottom" orient="bottom"/>
+                    <YAxis axisAt="left" orient="left" />
 					<BarSeries yAccessor={d => d.y} />
 				</Chart>
 			</ChartCanvas>

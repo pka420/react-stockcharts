@@ -33,13 +33,14 @@ function getMaxUndefined(calculators) {
 const LENGTH_TO_SHOW = 180;
 
 const macdAppearance = {
-	stroke: {
-		macd: "#FF0000",
-		signal: "#00F300",
-	},
-	fill: {
-		divergence: "#4682B4"
-	},
+    fillStyle: {
+        divergence: "#4682B4",
+    },
+    strokeStyle: {
+        macd: "#FF0000",
+        signal: "#00F300",
+        zero: "rgba(0, 0, 0, 0.3)",
+    },
 };
 
 class CandleStickChartPanToLoadMore extends React.Component {

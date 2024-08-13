@@ -8,7 +8,7 @@ import {
 } from "../core";
 import { range as d3Range, zip } from "d3-array";
 import { forceCollide, forceSimulation, forceX } from "d3-force";
-import { ScaleContinuousNumeric } from "d3-scale";
+import { ScaleContinuousNumeric, scaleLinear } from "d3-scale";
 import * as React from "react";
 import { AxisZoomCapture } from "./AxisZoomCapture";
 
@@ -206,7 +206,8 @@ const tickHelper = (props: AxisProps, scale: ScaleContinuousNumeric<number, numb
         tickValues = scale.domain();
     }
 
-    const format = tickFormat === undefined ? scale.tickFormat(tickArguments) : (d: any) => tickFormat(d) || "";
+    const baseFormat = scale.tickFormat ? scale.tickFormat(tickArguments) : (d: any) => d;
+    const format = tickFormat === undefined ? baseFormat : (d: any) => tickFormat(d) || "";
 
     const sign = orient === "top" || orient === "left" ? -1 : 1;
     const tickSpacing = Math.max(innerTickSize, 0) + tickPadding;

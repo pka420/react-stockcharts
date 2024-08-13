@@ -10,12 +10,16 @@ import Section from "lib/section";
 import GroupedBarChart from "lib/charts/GroupedBarChart";
 
 class GroupedBarChartPage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.myRef = React.createRef();
+    }
 	render() {
 		return (
 			<ContentSection title={GroupedBarChartPage.title}>
 				<Row>
 					<Section colSpan={2}>
-						<TypeChooser ref="container">
+						<TypeChooser ref={this.myRef}>
 							{(type) => (<GroupedBarChart data={this.props.groupedBarData} type={type} />)}
 						</TypeChooser>
 					</Section>

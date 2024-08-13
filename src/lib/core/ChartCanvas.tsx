@@ -1,5 +1,5 @@
 import { extent as d3Extent, max, min } from "d3-array";
-import { ScaleContinuousNumeric, ScaleTime } from "d3-scale";
+import { ScaleContinuousNumeric, ScaleTime, ScalePoint } from "d3-scale";
 import React from 'react';
 import { clearCanvas, functor, head, identity, isDefined, isNotDefined, last, shallowEqual } from "./utils";
 import { IZoomAnchorOptions, mouseBasedZoomAnchor } from "./zoom";
@@ -191,7 +191,7 @@ const resetChart = <TXAxis extends number | Date>(props: ChartCanvasProps<TXAxis
 
 const updateChart = (
     newState: any,
-    initialXScale: ScaleContinuousNumeric<number, number> | ScaleTime<number, number>,
+    initialXScale: ScaleContinuousNumeric<number, number> | ScaleTime<number, number> | ScalePoint<number, number>,
     props: any,
     lastItemWasVisible: boolean,
     initialChartConfig: any,
@@ -323,7 +323,7 @@ const pinchCoordinates = (pinch: any) => {
 };
 
 const isInteractionEnabled = (
-    xScale: ScaleContinuousNumeric<number, number> | ScaleTime<number, number>,
+    xScale: ScaleContinuousNumeric<number, number> | ScaleTime<number, number> | ScalePoint<number, number>,
     xAccessor: any,
     data: any,
 ) => {
@@ -388,7 +388,7 @@ export interface ChartCanvasProps<TXAxis extends number | Date> {
     readonly width: number;
     readonly xAccessor: (data: any) => TXAxis;
     readonly xExtents: ((data: any[]) => [TXAxis, TXAxis]) | (((data: any[]) => TXAxis) | TXAxis)[];
-    readonly xScale: ScaleContinuousNumeric<number, number> | ScaleTime<number, number>;
+    readonly xScale: ScaleContinuousNumeric<number, number> | ScaleTime<number, number> | ScalePoint<number, number>;
     readonly zIndex?: number;
     readonly zoomAnchor?: (options: IZoomAnchorOptions<any, TXAxis>) => TXAxis;
     readonly zoomMultiplier?: number;
@@ -402,7 +402,7 @@ interface ChartCanvasState<TXAxis extends number | Date> {
     filterData?: any;
     chartConfigs: ChartConfig[];
     plotData: any[];
-    xScale: ScaleContinuousNumeric<number, number> | ScaleTime<number, number>;
+    xScale: ScaleContinuousNumeric<number, number> | ScaleTime<number, number> | ScalePoint<number, number>;
     fullData: any[];
 }
 
@@ -629,7 +629,8 @@ export class ChartCanvas<TXAxis extends number | Date> extends React.Component<
 
         const updatedScale = initialXScale.copy().domain(domain) as
             | ScaleContinuousNumeric<number, number>
-            | ScaleTime<number, number>;
+            | ScaleTime<number, number>
+            | ScalePoint<number, number>;
 
         const chartConfigs = getChartConfigWithUpdatedYScales(
             initialChartConfig,
@@ -682,7 +683,8 @@ export class ChartCanvas<TXAxis extends number | Date> extends React.Component<
 
         const updatedScale = initialXScale!.copy().domain(domain) as
             | ScaleContinuousNumeric<number, number>
-            | ScaleTime<number, number>;
+            | ScaleTime<number, number>
+            | ScalePoint<number, number>;
 
         const mouseXY = finalPinch.touch1Pos;
 
@@ -928,7 +930,7 @@ export class ChartCanvas<TXAxis extends number | Date> extends React.Component<
 
     public panHelper = (
         mouseXY: [number, number],
-        initialXScale: ScaleContinuousNumeric<number, number> | ScaleTime<number, number>,
+        initialXScale: ScaleContinuousNumeric<number, number> | ScaleTime<number, number> | ScalePoint<number, number>,
         { dx, dy }: { dx: number; dy: number },
         chartsToPan: string[],
     ) => {
@@ -948,7 +950,8 @@ export class ChartCanvas<TXAxis extends number | Date> extends React.Component<
 
         const updatedScale = initialXScale.copy().domain(domain) as
             | ScaleContinuousNumeric<number, number>
-            | ScaleTime<number, number>;
+            | ScaleTime<number, number>
+            | ScalePoint<number, number>;
 
         const plotData = postCalculator(beforePlotData);
 
@@ -976,7 +979,7 @@ export class ChartCanvas<TXAxis extends number | Date> extends React.Component<
 
     public handlePan = (
         mousePosition: [number, number],
-        panStartXScale: ScaleContinuousNumeric<number, number> | ScaleTime<number, number>,
+        panStartXScale: ScaleContinuousNumeric<number, number> | ScaleTime<number, number> | ScalePoint<number, number>,
         dxdy: { dx: number; dy: number },
         chartsToPan: string[],
         e: React.MouseEvent,
@@ -1014,7 +1017,7 @@ export class ChartCanvas<TXAxis extends number | Date> extends React.Component<
 
     public handlePanEnd = (
         mousePosition: [number, number],
-        panStartXScale: ScaleContinuousNumeric<number, number> | ScaleTime<number, number>,
+        panStartXScale: ScaleContinuousNumeric<number, number> | ScaleTime<number, number> | ScalePoint<number, number>,
         dxdy: { dx: number; dy: number },
         chartsToPan: string[],
         e: React.MouseEvent | React.TouchEvent,

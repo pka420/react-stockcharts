@@ -16,8 +16,6 @@ import {
 
 import {
 	Form,
-	FormGroup,
-	FormControl,
 	Col,
 } from "react-bootstrap";
 
@@ -86,23 +84,23 @@ class ZoomAndPanPage extends React.Component {
 					</Section>
 				</Row>
 				<Row>
-					<Form horizontal>
-						<FormGroup controlId="formControlsSelectMultiple">
-							<Col componentClass={Form.Label} sm={4}>
-								Zoom anchor
-							</Col>
+					<Form>
+						<Form.Group controlId="formControlsSelectMultiple">
+                            <Form.Label column sm={4}>
+                                Zoom anchor
+                            </Form.Label>
 							<Col sm={6}>
-								<FormControl
-									componentClass="select"
+								<Form.Control
+									as="select"
 									value={this.state.zoomAnchor}
 									onChange={this.setZoomAnchor}
 								>
 									<option value="mouseBasedZoomAnchor">Mouse position</option>
 									<option value="lastVisibleItemBasedZoomAnchor">Last visible candle</option>
 									<option value="rightDomainBasedZoomAnchor">Right extreme point</option>
-								</FormControl>
+								</Form.Control>
 							</Col>
-						</FormGroup>
+						</Form.Group>
 					</Form>
 				</Row>
 				<Row>

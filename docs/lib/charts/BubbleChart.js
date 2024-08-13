@@ -1,6 +1,7 @@
 
 import { set } from "d3-collection";
-import { scaleOrdinal, schemeCategory10, scaleLinear, scaleLog } from  "d3-scale";
+import { scaleOrdinal,  scaleLinear, scaleLog } from  "d3-scale";
+import { schemeCategory10 } from "d3-scale-chromatic";
 import { format } from "d3-format";
 import { extent } from "d3-array";
 

@@ -32,13 +32,14 @@ import { ema, macd, sma } from "react-stockcharts/lib/indicators";
 import { fitWidth } from "react-stockcharts/lib/helper";
 
 const macdAppearance = {
-	stroke: {
-		macd: "#FF0000",
-		signal: "#00F300",
-	},
-	fill: {
-		divergence: "#4682B4"
-	},
+    strokeStyle: {
+        macd: "#0093FF",
+        signal: "#D84315",
+        zero: "rgba(0, 0, 0, 0.3)",
+    },
+    fillStyle: {
+        divergence: "#4682B4",
+    },
 };
 
 const mouseEdgeAppearance = {

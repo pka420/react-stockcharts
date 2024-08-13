@@ -9,13 +9,16 @@ import Section from "lib/section";
 import StackedBarChart from "lib/charts/StackedBarChart";
 
 class StackedBarChartPage extends React.Component {
-
+    constructor(props) {
+        super(props);
+        this.myRef = React.createRef();
+    }
 	render() {
 		return (
 			<ContentSection title={StackedBarChartPage.title}>
 				<Row>
 					<Section colSpan={2}>
-						<TypeChooser ref="container">
+						<TypeChooser ref={this.myRef}>
 							{(type) => (<StackedBarChart data={this.props.groupedBarData} type={type} />)}
 						</TypeChooser>
 					</Section>
