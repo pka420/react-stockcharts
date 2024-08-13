@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from 'react-dom/client';
 
 import { csvParse, tsvParse } from  "d3-dsv";
 import { merge } from "d3-array";
@@ -270,7 +270,8 @@ function renderPage(data, dataFull, intraDayContinuous, intraDayDiscontinuous, c
 		}
 	}
 
-	ReactDOM.render(<ExamplesPage />, document.getElementById("chart-goes-here"));
+    const root = createRoot(document.getElementById("chart-goes-here"));
+    root.render(<ExamplesPage />);
 }
 
 
@@ -333,5 +334,6 @@ function renderPartialPage(data, dataFull, intraDayContinuous, intraDayDiscontin
 						{(type) => <Chart data={data} type={type} />}
 					</TypeChooser>
 	*/
-	ReactDOM.render(<ExamplesPage />, document.getElementById("chart-goes-here"));
+    const root = document.getElementById("chart-goes-here");
+    root.render(<ExamplesPage />);
 }
