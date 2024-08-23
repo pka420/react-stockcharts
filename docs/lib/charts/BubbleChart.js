@@ -1,4 +1,3 @@
-
 import { set } from "d3-collection";
 import { scaleOrdinal,  scaleLinear, scaleLog } from  "d3-scale";
 import { schemeCategory10 } from "d3-scale-chromatic";
@@ -28,8 +27,8 @@ class BubbleChart extends React.Component {
 			.range([2, 20])
 			.domain(extent(data, d => d.population));
 
-		const f = scaleOrdinal(schemeCategory10)
-			.domain(set(data.map(d => d.region)));
+        const regions = Array.from(set(data.map(d => d.region)));
+		const f = scaleOrdinal(schemeCategory10).domain(regions);
 
 		const fill = d => f(d.region);
 		const radius = d => r(d.population);

@@ -17,8 +17,8 @@ class StackedBarChart extends React.Component {
 	render() {
 		const { data, type, width, ratio } = this.props;
 
-		const f = scaleOrdinal(schemeCategory10)
-			.domain(set(data.map(d => d.region)));
+        const regions = Array.from(set(data.map(d => d.region)));
+		const f = scaleOrdinal(schemeCategory10).domain(regions);
 
 		const fill = (d, i) => f(i);
 		return (

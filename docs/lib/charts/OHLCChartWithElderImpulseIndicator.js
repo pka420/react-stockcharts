@@ -31,13 +31,14 @@ import { fitWidth } from "react-stockcharts/lib/helper";
 import { last } from "react-stockcharts/lib/core";
 
 const macdAppearance = {
-	stroke: {
+    fillStyle: {
+		divergence: "#4682B4"
+    },
+    strokeStyle: {
 		macd: "#FF0000",
 		signal: "#00F300",
-	},
-	fill: {
-		divergence: "#4682B4"
-	},
+        zero: "rgba(0, 0, 0, 0.3)",
+    },
 };
 
 class OHLCChartWithElderImpulseIndicator extends React.Component {

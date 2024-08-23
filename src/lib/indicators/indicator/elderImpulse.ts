@@ -66,7 +66,8 @@ export default function () {
         emaSource = x;
         return indicator;
     };
-    rebind(indicator, base, "id", "echo", "type", "stroke");
+    //rebind(indicator, base, "id", "echo", "type", "stroke");
+    //rebind(indicator, base, "id", "echo", "type", "stroke");
     rebind(indicator, mergedAlgorithm, "merge", "skipUndefined");
 
     return indicator;

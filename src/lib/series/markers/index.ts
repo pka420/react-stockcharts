@@ -1,3 +1,3 @@
-export * as CircleMarker from "./CircleMarker";
-export * as SquareMarker from "./SquareMarker";
-export * as TriangleMarker from "./TriangleMarker";
+export * from "./CircleMarker";
+export * from "./SquareMarker";
+export *  from "./TriangleMarker";

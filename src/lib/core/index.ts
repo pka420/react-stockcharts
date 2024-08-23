@@ -5,6 +5,7 @@ export * from "./GenericComponent";
 export * from "./MoreProps";
 export * from "./utils";
 export * from "./zoom";
+import { head } from "./utils";
 
 type IterateeFunction<T> = (item: T) => [string | number | symbol, any];
 

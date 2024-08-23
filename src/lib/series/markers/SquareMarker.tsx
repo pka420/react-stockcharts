@@ -14,7 +14,7 @@ export interface SquareProps {
     readonly width: number | ((datum: any) => number);
 }
 
-export class Square extends React.Component<SquareProps> {
+export class SquareMarker extends React.Component<SquareProps> {
     public static defaultProps = {
         fillStyle: "#4682B4",
         className: "react-financial-charts-marker-rect",

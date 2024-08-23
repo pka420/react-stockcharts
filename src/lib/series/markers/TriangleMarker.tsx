@@ -15,7 +15,7 @@ export interface TriangleProps {
     readonly width?: number | ((datum: any) => number);
 }
 
-export class Triangle extends React.Component<TriangleProps> {
+export class TriangleMarker extends React.Component<TriangleProps> {
     public static defaultProps = {
         direction: "top",
         fillStyle: "#4682B4",
