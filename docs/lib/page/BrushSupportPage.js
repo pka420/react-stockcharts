@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import { TypeChooser } from "react-stockcharts/lib/helper";
 
@@ -8,6 +6,8 @@ import Row from "lib/row";
 import Section from "lib/section";
 
 import CandleStickChartWithBrush from "lib/charts/CandleStickChartWithBrush";
+import Markdown from "lib/Markdown.js"
+
 
 class BrushSupportPage extends React.Component {
 	render() {
@@ -15,7 +15,7 @@ class BrushSupportPage extends React.Component {
 			<ContentSection title={BrushSupportPage.title}>
 				<Row>
 					<Section colSpan={2}>
-						<aside dangerouslySetInnerHTML={{ __html: require("md/BRUSH-INTERACTIVE-INDICATOR") }}></aside>
+						<Markdown md_file="md/BRUSH-INTERACTIVE-INDICATOR.md" />
 					</Section>
 				</Row>
 				<Row>

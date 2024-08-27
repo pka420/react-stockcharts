@@ -8,7 +8,10 @@ export default function () {
     let macdSource: any | undefined;
     let emaSource: any | undefined;
 
-    const base = baseIndicator().type(ALGORITHM_TYPE).stroke(appearanceOptions.stroke).fill(undefined);
+    const base = baseIndicator()
+        .type(ALGORITHM_TYPE)
+        .stroke(appearanceOptions.stroke)
+        .fill(undefined);
 
     const underlyingAlgorithm = slidingWindow()
         .windowSize(2)
@@ -66,8 +69,11 @@ export default function () {
         emaSource = x;
         return indicator;
     };
-    //rebind(indicator, base, "id", "echo", "type", "stroke");
-    //rebind(indicator, base, "id", "echo", "type", "stroke");
+
+
+    //    rebind(indicator, base, "id", "echo", "type", "stroke");
+    //    TO DO:
+    //    try this rebind, here base is a string instead of a function, don't know why.
     rebind(indicator, mergedAlgorithm, "merge", "skipUndefined");
 
     return indicator;

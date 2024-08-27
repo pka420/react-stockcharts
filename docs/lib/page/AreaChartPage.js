@@ -1,7 +1,4 @@
-
-
 import React from "react";
-
 import ContentSection from "lib/content-section";
 import Row from "lib/row";
 import Section from "lib/section";
@@ -9,6 +6,7 @@ import Section from "lib/section";
 import AreaChart from "lib/charts/AreaChart";
 import AreaChartWithYPercent from "lib/charts/AreaChartWithYPercent";
 import { TypeChooser } from "react-stockcharts/lib/helper";
+import Markdown from "lib/Markdown.js"
 
 class OverviewPage extends React.Component {
 	render() {
@@ -23,7 +21,7 @@ class OverviewPage extends React.Component {
 				</Row>
 				<Row>
 					<Section colSpan={2}>
-						<aside dangerouslySetInnerHTML={{ __html: require("md/AREACHART") }}></aside>
+						<Markdown md_file="md/AREACHART.md" />
 					</Section>
 				</Row>
 				<Row>

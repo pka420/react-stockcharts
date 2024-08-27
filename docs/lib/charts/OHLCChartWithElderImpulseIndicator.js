@@ -108,7 +108,8 @@ class OHLCChartWithElderImpulseIndicator extends React.Component {
 
 					<LineSeries yAccessor={ema12.accessor()} stroke={ema12.stroke()}/>
 
-					<OHLCSeries stroke={d => elderImpulseCalculator.stroke()[d.elderImpulse]} />
+			{ /*	<OHLCSeries stroke={d => elderImpulseCalculator.stroke()[d.elderImpulse]} /> */}
+						<OHLCSeries />
 
 					<EdgeIndicator itemType="last" orient="right" edgeAt="right"
 						yAccessor={d => d.close} fill={d => d.close > d.open ? "#6BA583" : "#FF0000"}/>

@@ -1,7 +1,6 @@
-
-
 import React from "react";
 import { TypeChooser } from "react-stockcharts/lib/helper";
+import Markdown from "lib/Markdown.js";
 
 import ContentSection from "lib/content-section";
 import Row from "lib/row";
@@ -26,7 +25,7 @@ class HorizontalBarChartPage extends React.Component {
 				</Row>
 				<Row>
 					<Section colSpan={2}>
-						<aside dangerouslySetInnerHTML={{ __html: require("md/HORIZONTAL-STACKED-BAR-CHART") }}></aside>
+						<Markdown md_file="md/HORIZONTAL-STACKED-BAR-CHART.md" />
 					</Section>
 				</Row>
 			</ContentSection>

@@ -68,11 +68,11 @@ const smaVolume50 = sma()
 
 const BRUSH_TYPE = "2D"; // Valid values = "2D", "1D"
 const macdAppearance = {
-	stroke: {
+	strokeStyle: {
 		macd: "#FF0000",
 		signal: "#00F300",
 	},
-	fill: {
+	fillStyle: {
 		divergence: "#4682B4"
 	},
 };

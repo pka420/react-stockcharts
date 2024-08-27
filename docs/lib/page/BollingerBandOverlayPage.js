@@ -7,6 +7,8 @@ import ContentSection from "lib/content-section";
 import Row from "lib/row";
 import Section from "lib/section";
 import CandleStickChartWithBollingerBandOverlay from "lib/charts/CandleStickChartWithBollingerBandOverlay";
+import Markdown from "lib/Markdown.js"
+
 
 class BollingerBandOverlayPage extends React.Component {
 	render() {
@@ -21,7 +23,7 @@ class BollingerBandOverlayPage extends React.Component {
 				</Row>
 				<Row>
 					<Section colSpan={2}>
-						<aside dangerouslySetInnerHTML={{ __html: require("md/BOLLINGER-BAND-OVERLAY") }}></aside>
+						<Markdown md_file="md/BOLLINGER-BAND-OVERLAY.md" />
 					</Section>
 				</Row>
 			</ContentSection>

@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import { TypeChooser } from "react-stockcharts/lib/helper";
 
@@ -8,6 +6,7 @@ import Row from "lib/row";
 import Section from "lib/section";
 
 import MovingAverageCrossOverAlgorithmV2 from "lib/charts/MovingAverageCrossOverAlgorithmV2";
+import Markdown from "lib/Markdown.js"
 
 class MovingAverageCrossoverAlgorithmPage2 extends React.Component {
 	render() {
@@ -22,7 +21,7 @@ class MovingAverageCrossoverAlgorithmPage2 extends React.Component {
 				</Row>
 				<Row>
 					<Section colSpan={2}>
-						<aside dangerouslySetInnerHTML={{ __html: require("md/MA-CROSSOVER-ALGORITHMV2") }}></aside>
+						<Markdown md_file="md/MA-CROSSOVER-ALGORITHMV2.md" />
 					</Section>
 				</Row>
 			</ContentSection>

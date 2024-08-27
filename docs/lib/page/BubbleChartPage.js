@@ -1,12 +1,10 @@
-
-
 import React from "react";
 import { TypeChooser } from "react-stockcharts/lib/helper";
 
 import ContentSection from "lib/content-section";
 import Row from "lib/row";
 import Section from "lib/section";
-
+import Markdown from "lib/Markdown.js"
 import BubbleChart from "lib/charts/BubbleChart";
 
 class BubbleChartPage extends React.Component {
@@ -26,7 +24,7 @@ class BubbleChartPage extends React.Component {
 				</Row>
 				<Row>
 					<Section colSpan={2}>
-						<aside dangerouslySetInnerHTML={{ __html: require("md/BUBBLE-CHART") }}></aside>
+						<Markdown md_file="md/BUBBLE-CHART.md" />
 					</Section>
 				</Row>
 			</ContentSection>

@@ -1,11 +1,10 @@
-
-
 import React from "react";
 import { TypeChooser } from "react-stockcharts/lib/helper";
 
 import ContentSection from "lib/content-section";
 import Row from "lib/row";
 import Section from "lib/section";
+import Markdown from "lib/Markdown.js";
 
 import CandleStickChartWithUpdatingData from "lib/charts/CandleStickChartWithUpdatingData";
 import KagiWithUpdatingData from "lib/charts/KagiWithUpdatingData";
@@ -18,7 +17,7 @@ class UpdatingDataPage extends React.Component {
 			<ContentSection title={UpdatingDataPage.title}>
 				{/* <Row>
 					<Section colSpan={2}>
-						<aside dangerouslySetInnerHTML={{__html: require('md/UPDATING-DATA')}}></aside>
+						<Markdown dangerouslySetInnerHTML={{__html: require('md/UPDATING-DATA')}}></aside>
 					</Section>
 				</Row>
 				<Row>

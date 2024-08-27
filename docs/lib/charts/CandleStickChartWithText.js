@@ -87,11 +87,12 @@ class Dialog extends React.Component {
 	}
 }
 const macdAppearance = {
-	stroke: {
+	strokeStyle: {
 		macd: "#FF0000",
 		signal: "#00F300",
+    zero: "rgba(0, 0, 0, 0.3)",
 	},
-	fill: {
+	fillStyle: {
 		divergence: "#4682B4"
 	},
 };

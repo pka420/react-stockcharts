@@ -1,5 +1,4 @@
-
-
+import Markdown from "lib/Markdown.js"
 import React from "react";
 import { TypeChooser } from "react-stockcharts/lib/helper";
 
@@ -15,7 +14,7 @@ class ForceIndexIndicatorPage extends React.Component {
 			<ContentSection title={ForceIndexIndicatorPage.title}>
 				<Row>
 					<Section colSpan={2}>
-						<aside dangerouslySetInnerHTML={{ __html: require("md/FORCE-INDEX-INDICATOR") }}></aside>
+						<Markdown md_file="md/FORCE-INDEX-INDICATOR.md" />
 					</Section>
 				</Row>
 				<Row>

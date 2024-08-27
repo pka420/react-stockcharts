@@ -1,9 +1,8 @@
-
-
 import React from "react";
 import ContentSection from "lib/content-section";
 import Row from "lib/row";
 import Section from "lib/section";
+import Markdown from "lib/Markdown.js"
 
 import CandleStickStockScaleChartWithVolumeBarV1 from "lib/charts/CandleStickStockScaleChartWithVolumeBarV1";
 import CandleStickStockScaleChartWithVolumeBarV2 from "lib/charts/CandleStickStockScaleChartWithVolumeBarV2";
@@ -15,7 +14,7 @@ class VolumeBarPage extends React.Component {
 			<ContentSection title={VolumeBarPage.title}>
 				<Row>
 					<Section colSpan={2}>
-						<aside dangerouslySetInnerHTML={{ __html: require("md/VOLUME-BAR-INTRO") }}></aside>
+						<Markdown md_file="md/VOLUME-BAR-INTRO.md" />
 					</Section>
 				</Row>
 				<Row>
@@ -25,7 +24,7 @@ class VolumeBarPage extends React.Component {
 				</Row>
 				<Row>
 					<Section colSpan={2}>
-						<aside dangerouslySetInnerHTML={{ __html: require("md/VOLUME-BAR") }}></aside>
+						<Markdown md_file="md/VOLUME-BAR.md" />
 					</Section>
 				</Row>
 				<Row>
@@ -35,7 +34,7 @@ class VolumeBarPage extends React.Component {
 				</Row>
 				<Row>
 					<Section colSpan={2}>
-						<aside dangerouslySetInnerHTML={{ __html: require("md/VOLUME-BAR-Contd") }}></aside>
+						<Markdown md_file="md/VOLUME-BAR-Contd.md" />
 					</Section>
 				</Row>
 				<Row>
@@ -45,7 +44,7 @@ class VolumeBarPage extends React.Component {
 				</Row>
 				<Row>
 					<Section colSpan={2}>
-						<aside dangerouslySetInnerHTML={{ __html: require("md/VOLUME-BAR-Contd2") }}></aside>
+						<Markdown md_file="md/VOLUME-BAR-Contd2.md" />
 					</Section>
 				</Row>
 			</ContentSection>

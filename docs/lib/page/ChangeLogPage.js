@@ -1,9 +1,8 @@
-
-
 import React from "react";
 import ContentSection from "lib/content-section";
 import Row from "lib/row";
 import Section from "lib/section";
+import Markdown from "lib/Markdown.js"
 
 class ChangeLogPage extends React.Component {
 	render() {
@@ -11,7 +10,7 @@ class ChangeLogPage extends React.Component {
 			<ContentSection title={ChangeLogPage.title}>
 				<Row>
 					<Section colSpan={2}>
-						<aside dangerouslySetInnerHTML={{ __html: require("md/CHANGE-LOG") }}></aside>
+						<Markdown md_file="md/CHANGE-LOG.md" />
 					</Section>
 				</Row>
 			</ContentSection>

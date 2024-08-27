@@ -5,12 +5,11 @@ import React from "react";
 import { createRoot } from 'react-dom/client';
 
 import Chart from "./lib/charts/CandleStickChartWithDarkTheme";
-
-const ReadME = require("md/MAIN.md");
+import Markdown from "lib/Markdown.js"
 
 require("stylesheets/re-stock");
 
-document.getElementById("content").innerHTML = ReadME;
+document.getElementById("content").render(<Markdown md_file="md/MAIN.md" />)
 
 const parseDate = timeParse("%Y-%m-%d");
 

@@ -1,7 +1,6 @@
-
-
 import React from "react";
 import { TypeChooser } from "react-stockcharts/lib/helper";
+import Markdown from "lib/Markdown.js";
 
 import ContentSection from "lib/content-section";
 import Row from "lib/row";
@@ -15,7 +14,7 @@ class RenkoPage extends React.Component {
 			<ContentSection title={RenkoPage.title}>
 				<Row>
 					<Section colSpan={2}>
-						<aside dangerouslySetInnerHTML={{ __html: require("md/RENKO") }}></aside>
+						<Markdown md_file="md/RENKO.md" />
 					</Section>
 				</Row>
 				<Row>

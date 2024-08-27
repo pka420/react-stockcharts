@@ -1,8 +1,6 @@
-
-
 import React from "react";
 import { TypeChooser } from "react-stockcharts/lib/helper";
-
+import Markdown from "lib/Markdown.js";
 import ContentSection from "lib/content-section";
 import Row from "lib/row";
 import Section from "lib/section";
@@ -23,7 +21,7 @@ class RSIIndicatorPage extends React.Component {
 				</Row>
 				<Row>
 					<Section colSpan={2}>
-						<aside dangerouslySetInnerHTML={{ __html: require("md/RSI-INDICATOR") }}></aside>
+						<Markdown md_file="md/RSI-INDICATOR.md" />
 					</Section>
 				</Row>
 			</ContentSection>

@@ -1,7 +1,6 @@
-
-
 import React from "react";
 import { TypeChooser } from "react-stockcharts/lib/helper";
+import Markdown from "lib/Markdown.js";
 
 import ContentSection from "lib/content-section";
 import Row from "lib/row";
@@ -15,7 +14,7 @@ class LotsOfDataPage extends React.Component {
 			<ContentSection title={LotsOfDataPage.title}>
 				<Row>
 					<Section colSpan={2}>
-						<aside dangerouslySetInnerHTML={{ __html: require("md/LOTS-OF-DATA") }}></aside>
+						<Markdown md_file="md/LOTS-OF-DATA.md" />
 					</Section>
 				</Row>
 				<Row>

@@ -7,6 +7,7 @@ import { TypeChooser, SaveChartAsImage } from "react-stockcharts/lib/helper";
 import ContentSection from "lib/content-section";
 import Row from "lib/row";
 import Section from "lib/section";
+import Markdown from "lib/Markdown.js"
 
 import CandleStickChartWithDarkTheme from "lib/charts/CandleStickChartWithDarkTheme";
 
@@ -28,7 +29,7 @@ class DarkThemePage extends React.Component {
 			<ContentSection title={DarkThemePage.title}>
 				<Row>
 					<Section  colSpan={2}>
-						<aside dangerouslySetInnerHTML={{ __html: require("md/DARK-THEME") }}></aside>
+						<Markdown md_file="md/DARK-THEME.md" />
 					</Section>
 				</Row>
 				<Row>

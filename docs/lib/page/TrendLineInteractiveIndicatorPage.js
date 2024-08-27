@@ -1,5 +1,4 @@
-
-
+import Markdown from "lib/Markdown.js";
 import React from "react";
 import ReactDOM from "react-dom";
 import { TypeChooser, SaveChartAsImage } from "react-stockcharts/lib/helper";
@@ -28,7 +27,7 @@ class TrendLineInteractiveIndicatorPage extends React.Component {
 			<ContentSection title={TrendLineInteractiveIndicatorPage.title}>
 				<Row>
 					<Section colSpan={2}>
-						<aside dangerouslySetInnerHTML={{ __html: require("md/TRENDLINES-INTERACTIVE-INDICATOR") }}></aside>
+						<Markdown md_file="md/TRENDLINES-INTERACTIVE-INDICATOR.md" />
 					</Section>
 				</Row>
 				<Row>

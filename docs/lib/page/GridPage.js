@@ -1,8 +1,6 @@
-
-
 import React from "react";
 import { TypeChooser } from "react-stockcharts/lib/helper";
-
+import Markdown from "lib/Markdown.js";
 import {
 	curveLinear,
 	curveStep,
@@ -157,7 +155,7 @@ class GridPage extends React.Component {
 				</Row>
 				<Row>
 					<Section colSpan={2}>
-						<aside dangerouslySetInnerHTML={{ __html: require("md/GRID") }}></aside>
+						<Markdown md_file="md/GRID.md" />
 					</Section>
 				</Row>
 			</ContentSection>

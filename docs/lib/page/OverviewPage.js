@@ -1,7 +1,5 @@
-
-
 import React from "react";
-
+import Markdown from "lib/Markdown.js";
 import ContentSection from "lib/content-section";
 import Row from "lib/row";
 import Section from "lib/section";
@@ -12,7 +10,7 @@ class OverviewPage extends React.Component {
 			<ContentSection title={OverviewPage.title}>
 				<Row>
 					<Section  colSpan={2}>
-						<aside dangerouslySetInnerHTML={{ __html: require("md/OVERVIEW") }}></aside>
+						<Markdown md_file="md/OVERVIEW.md" />
 					</Section>
 				</Row>
 			</ContentSection>

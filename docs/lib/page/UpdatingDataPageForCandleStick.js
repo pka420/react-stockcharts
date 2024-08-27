@@ -1,3 +1,4 @@
+import Markdown from "lib/Markdown.js";
 import React from "react";
 import { TypeChooser } from "react-stockcharts/lib/helper";
 
@@ -23,7 +24,7 @@ class UpdatingDataPageForCandleStick extends React.Component {
 				</Row>
 				<Row>
 					<Section colSpan={2}>
-						<aside dangerouslySetInnerHTML={{ __html: require("md/UPDATING-DATA") }}></aside>
+						<Markdown md_file="md/UPDATING-DATA.md" />
 					</Section>
 				</Row>
 				{/* <Row>

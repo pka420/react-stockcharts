@@ -30,11 +30,11 @@ import { ClickCallback } from "react-stockcharts/lib/interactive";
 import { last } from "react-stockcharts/lib/core";
 
 const macdAppearance = {
-	stroke: {
+	strokeStyle: {
 		macd: "#FF0000",
 		signal: "#00F300",
 	},
-	fill: {
+	fillStyle: {
 		divergence: "#4682B4"
 	},
 };

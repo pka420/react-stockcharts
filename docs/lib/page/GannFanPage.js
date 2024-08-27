@@ -1,5 +1,6 @@
 import React from "react";
 import { TypeChooser } from "react-stockcharts/lib/helper";
+import Markdown from "lib/Markdown.js"
 
 import ContentSection from "lib/content-section";
 import Row from "lib/row";
@@ -13,7 +14,7 @@ class GannFanPage extends React.Component {
 			<ContentSection title={GannFanPage.title}>
 				<Row>
 					<Section colSpan={2}>
-						<aside dangerouslySetInnerHTML={{ __html: require("md/GANN-FAN") }}></aside>
+						<Markdown md_file="md/GANN-FAN.md" />
 					</Section>
 				</Row>
 				<Row>

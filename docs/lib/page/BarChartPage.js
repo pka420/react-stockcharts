@@ -1,11 +1,9 @@
-
-
 import React from "react";
 import { TypeChooser } from "react-stockcharts/lib/helper";
-
 import ContentSection from "lib/content-section";
 import Row from "lib/row";
 import Section from "lib/section";
+import Markdown from "lib/Markdown.js"
 
 import BarChart from "lib/charts/BarChart";
 
@@ -26,7 +24,7 @@ class BarChartPage extends React.Component {
 				</Row>
 				<Row>
 					<Section colSpan={2}>
-						<aside dangerouslySetInnerHTML={{ __html: require("md/BAR-CHART") }}></aside>
+						<Markdown md_file="md/BAR-CHART.md" />
 					</Section>
 				</Row>
 			</ContentSection>

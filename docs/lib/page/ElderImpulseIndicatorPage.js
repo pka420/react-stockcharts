@@ -1,5 +1,4 @@
-
-
+import Markdown from "lib/Markdown.js";
 import React from "react";
 import { TypeChooser } from "react-stockcharts/lib/helper";
 
@@ -15,7 +14,7 @@ class ElderImpulseIndicatorPage extends React.Component {
 			<ContentSection title={ElderImpulseIndicatorPage.title}>
 				<Row>
 					<Section colSpan={2}>
-						<aside dangerouslySetInnerHTML={{ __html: require("md/ELDER-IMPULSE-INDICATOR") }}></aside>
+						<Markdown md_file="md/ELDER-IMPULSE-INDICATOR.md" />
 					</Section>
 				</Row>
 				<Row>

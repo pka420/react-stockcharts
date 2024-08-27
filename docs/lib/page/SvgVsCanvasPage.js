@@ -1,11 +1,10 @@
-
-
 import React from "react";
 import { TypeChooser } from "react-stockcharts/lib/helper";
 
 import ContentSection from "lib/content-section";
 import Row from "lib/row";
 import Section from "lib/section";
+import Markdown from "lib/Markdown.js";
 
 import CandleStickChartWithZoomPan from "lib/charts/CandleStickChartWithZoomPan";
 
@@ -15,7 +14,7 @@ class SvgVsCanvasPage extends React.Component {
 			<ContentSection title={SvgVsCanvasPage.title}>
 				<Row>
 					<Section colSpan={2}>
-						<aside dangerouslySetInnerHTML={{ __html: require("md/SVG-VS-CANVAS") }}></aside>
+						<Markdown md_file="md/SVG-VS-CANVAS.md" />
 					</Section>
 				</Row>
 				<Row>

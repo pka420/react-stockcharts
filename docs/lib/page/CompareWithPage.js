@@ -1,11 +1,10 @@
-
-
 import React from "react";
 import { TypeChooser } from "react-stockcharts/lib/helper";
 
 import ContentSection from "lib/content-section";
 import Row from "lib/row";
 import Section from "lib/section";
+import Markdown from "lib/Markdown.js"
 
 import CandleStickChartWithCompare from "lib/charts/CandleStickChartWithCompare";
 
@@ -22,7 +21,7 @@ class CompareWithPage extends React.Component {
 				</Row>
 				<Row>
 					<Section colSpan={2}>
-						<aside dangerouslySetInnerHTML={{ __html: require("md/COMPARE-WITH") }}></aside>
+						<Markdown md_file="md/COMPARE-WITH.md" />
 					</Section>
 				</Row>
 			</ContentSection>

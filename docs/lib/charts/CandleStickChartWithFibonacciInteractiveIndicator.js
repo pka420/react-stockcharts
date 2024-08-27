@@ -38,11 +38,11 @@ import {
 } from "./interactiveutils";
 
 const macdAppearance = {
-	stroke: {
+	strokeStyle: {
 		macd: "#FF0000",
 		signal: "#00F300",
 	},
-	fill: {
+	fillStyle: {
 		divergence: "#4682B4"
 	},
 };

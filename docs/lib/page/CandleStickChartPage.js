@@ -1,9 +1,8 @@
-
-
 import React from "react";
 import ContentSection from "lib/content-section";
 import Row from "lib/row";
 import Section from "lib/section";
+import Markdown from "lib/Markdown.js"
 
 import CandleStickChart from "lib/charts/CandleStickChart";
 import CandleStickStockScaleChart from "lib/charts/CandleStickStockScaleChart";
@@ -19,7 +18,7 @@ class CandleStickChartPage extends React.Component {
 				</Row>
 				<Row>
 					<Section colSpan={2}>
-						<aside dangerouslySetInnerHTML={{ __html: require("md/CANDLESTICK") }}></aside>
+						<Markdown md_file="md/CANDLESTICK.md" />
 					</Section>
 				</Row>
 				<Row>
@@ -29,12 +28,12 @@ class CandleStickChartPage extends React.Component {
 				</Row>
 				<Row>
 					<Section colSpan={2}>
-						<aside dangerouslySetInnerHTML={{ __html: require("md/CANDLESTICK-IMPROVED") }}></aside>
+						<Markdown md_file="md/CANDLESTICK-IMPROVED.md" />
 					</Section>
 				</Row>
 				<Row title="stocktime scale">
 					<Section colSpan={2}>
-						<aside dangerouslySetInnerHTML={{ __html: require("md/FINANCETIMESCALE") }}></aside>
+						<Markdown md_file="md/FINANCETIMESCALE.md" />
 					</Section>
 				</Row>
 			</ContentSection>

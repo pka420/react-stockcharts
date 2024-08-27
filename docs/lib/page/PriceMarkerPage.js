@@ -1,10 +1,9 @@
-
-
 import React from "react";
 import ContentSection from "lib/content-section";
 import Row from "lib/row";
 import Section from "lib/section";
 import { TypeChooser } from "react-stockcharts/lib/helper";
+import Markdown from "lib/Markdown.js";
 
 import CandleStickChartWithPriceMarkers from "lib/charts/CandleStickChartWithPriceMarkers";
 
@@ -21,7 +20,7 @@ class PriceMarkerPage extends React.Component {
 				</Row>
 				<Row>
 					<Section colSpan={2}>
-						<aside dangerouslySetInnerHTML={{ __html: require("md/PRICEMARKER") }}></aside>
+						<Markdown md_file="md/PRICEMARKER.md" />
 					</Section>
 				</Row>
 			</ContentSection>

@@ -1,11 +1,11 @@
-
-
 import React from "react";
 import { TypeChooser } from "react-stockcharts/lib/helper";
 
 import ContentSection from "lib/content-section";
 import Row from "lib/row";
 import Section from "lib/section";
+import Markdown from "lib/Markdown.js"
+
 
 import CandleStickChartWithZoomPan from "lib/charts/CandleStickChartWithZoomPan";
 import {
@@ -120,7 +120,7 @@ class ZoomAndPanPage extends React.Component {
 				</Row>
 				<Row>
 					<Section colSpan={2}>
-						<aside dangerouslySetInnerHTML={{ __html: require("md/ZOOM-AND-PAN") }} />
+						<Markdown md_file="md/ZOOM-AND-PAN.md" />
 					</Section>
 				</Row>
 			</ContentSection>

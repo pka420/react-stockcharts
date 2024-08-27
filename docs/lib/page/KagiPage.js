@@ -1,5 +1,6 @@
 import React from "react";
 import { TypeChooser } from "react-stockcharts/lib/helper";
+import Markdown from "lib/Markdown.js";
 
 import ContentSection from "lib/content-section";
 import Row from "lib/row";
@@ -14,7 +15,7 @@ class KagiPage extends React.Component {
 			<ContentSection title={KagiPage.title}>
 				<Row>
 					<Section colSpan={2}>
-						<aside dangerouslySetInnerHTML={{ __html: require("md/KAGI") }}></aside>
+						<Markdown md_file="md/KAGI.md" />
 					</Section>
 				</Row>
 				<Row>

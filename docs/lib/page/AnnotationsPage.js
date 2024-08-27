@@ -4,6 +4,7 @@ import { TypeChooser } from "react-stockcharts/lib/helper";
 import ContentSection from "lib/content-section";
 import Row from "lib/row";
 import Section from "lib/section";
+import Markdown from "lib/Markdown.js"
 
 import CandleStickChartWithAnnotation from "lib/charts/CandleStickChartWithAnnotation";
 
@@ -24,7 +25,7 @@ class AnnotationsPage extends React.Component {
 				</Row>
 				<Row>
 					<Section colSpan={2}>
-						<aside dangerouslySetInnerHTML={{ __html: require("md/ANNOTATIONS") }}></aside>
+						<Markdown md_file="md/ANNOTATIONS.md" />
 					</Section>
 				</Row>
 			</ContentSection>

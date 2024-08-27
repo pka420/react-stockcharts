@@ -43,7 +43,7 @@ function buildConfig(mode) {
                     'style-loader', {
                       loader: 'css-loader',
                       options: {
-                        sourceMap: false // Disable source maps
+                        sourceMap: false
                       }
                     },
                     {
@@ -52,7 +52,10 @@ function buildConfig(mode) {
                     {
                       loader: 'sass-loader',
                       options: {
-                        sourceMap: false // Disable source maps
+                        sourceMap: true,
+												sassOptions: {
+													outputStyle: "expanded",
+												},
                       }
                     }
                   ]

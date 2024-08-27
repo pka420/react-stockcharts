@@ -1,5 +1,4 @@
-
-
+import Markdown from "lib/Markdown.js";
 import React from "react";
 import { TypeChooser } from "react-stockcharts/lib/helper";
 
@@ -15,7 +14,7 @@ class HeikinAshiPage extends React.Component {
 			<ContentSection title={HeikinAshiPage.title}>
 				<Row>
 					<Section colSpan={2}>
-						<aside dangerouslySetInnerHTML={{ __html: require("md/HEIKIN-ASHI") }}></aside>
+						<Markdown md_file="md/HEIKIN-ASHI.md" />
 					</Section>
 				</Row>
 				<Row>
