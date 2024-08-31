@@ -4,6 +4,7 @@ const { getIfUtils, removeEmpty } = require("webpack-config-utils");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ProgressBarPlugin = require("progress-bar-webpack-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const rootPath = path.join(__dirname, "..");
 
@@ -126,6 +127,11 @@ function buildConfig(mode) {
 			new webpack.LoaderOptionsPlugin({
 				options: { remarkable: getRemarkable(), context }
 			}),
+            new CopyWebpackPlugin({
+                patterns: [
+                    { from: 'public' }
+                ]
+            })
 		]),
 		devServer,
 		resolve: {
