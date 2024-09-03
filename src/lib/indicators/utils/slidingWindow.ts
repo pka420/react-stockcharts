@@ -26,117 +26,117 @@ THE SOFTWARE.
 
 */
 
-import { functor } from "./functor";
-import { path } from "./path";
+import { functor } from './functor';
+import { path } from './path';
 
 interface SlidingWindow {
-    (data: any[]): any[];
-    misc(): any;
-    misc(x: any): SlidingWindow;
-    accumulator(): any;
-    accumulator(x: any): SlidingWindow;
-    skipInitial(): number;
-    skipInitial(x: number): SlidingWindow;
-    source(): any;
-    source(source: any): SlidingWindow;
-    sourcePath(): any;
-    sourcePath(x: any): SlidingWindow;
-    windowSize(): number;
-    windowSize(windowSize: number): SlidingWindow;
-    undefinedValue(): any;
-    undefinedValue(x: any): SlidingWindow;
+  (data: any[]): any[];
+  misc(): any;
+  misc(x: any): SlidingWindow;
+  accumulator(): any;
+  accumulator(x: any): SlidingWindow;
+  skipInitial(): number;
+  skipInitial(x: number): SlidingWindow;
+  source(): any;
+  source(source: any): SlidingWindow;
+  sourcePath(): any;
+  sourcePath(x: any): SlidingWindow;
+  windowSize(): number;
+  windowSize(windowSize: number): SlidingWindow;
+  undefinedValue(): any;
+  undefinedValue(x: any): SlidingWindow;
 }
 
 export default function () {
-    let undefinedValue: any;
-    let windowSize = 10;
-    let accumulator = () => {
-        /** Do nothin */
-    };
-    let sourcePath: any;
-    let source: any;
-    let skipInitial = 0;
-    let misc: any;
+  let undefinedValue: any;
+  let windowSize = 10;
+  let accumulator = () => {
+    /** Do nothin */
+  };
+  let sourcePath: any;
+  let source: any;
+  let skipInitial = 0;
+  let misc: any;
 
-    const slidingWindow = (data: any[]) => {
-        const sourceFunction = source || path(sourcePath);
+  const slidingWindow = (data: any[]) => {
+    const sourceFunction = source || path(sourcePath);
 
-        // @ts-ignore
-        const size = functor(windowSize).apply(this, arguments);
-        const windowData = data.slice(skipInitial, size + skipInitial).map(sourceFunction);
+    // @ts-ignore
+    const size = functor(windowSize).apply(this, arguments);
+    const windowData = data.slice(skipInitial, size + skipInitial).map(sourceFunction);
 
-        let accumulatorIdx = 0;
-        const undef = functor(undefinedValue);
-        return data.map((d, i) => {
-            if (i < skipInitial + size - 1) {
-                return undef(sourceFunction(d), i, misc);
-            }
-            if (i >= skipInitial + size) {
-                // Treat windowData as FIFO rolling buffer
-                windowData.shift();
-                windowData.push(sourceFunction(d, i));
-            }
+    let accumulatorIdx = 0;
+    const undef = functor(undefinedValue);
+    return data.map((d, i) => {
+      if (i < skipInitial + size - 1) {
+        return undef(sourceFunction(d), i, misc);
+      }
+      if (i >= skipInitial + size) {
+        // Treat windowData as FIFO rolling buffer
+        windowData.shift();
+        windowData.push(sourceFunction(d, i));
+      }
 
-            // @ts-ignore
-            return accumulator(windowData, i, accumulatorIdx++, misc);
-        });
-    };
+      // @ts-ignore
+      return accumulator(windowData, i, accumulatorIdx++, misc);
+    });
+  };
 
-    slidingWindow.undefinedValue = function (x: any) {
-        if (!arguments.length) {
-            return undefinedValue;
-        }
-        undefinedValue = x;
-        return slidingWindow;
-    };
+  slidingWindow.undefinedValue = function (x: any) {
+    if (!arguments.length) {
+      return undefinedValue;
+    }
+    undefinedValue = x;
+    return slidingWindow;
+  };
 
-    slidingWindow.windowSize = function (x: any) {
-        if (!arguments.length) {
-            return windowSize;
-        }
-        windowSize = x;
-        return slidingWindow;
-    };
+  slidingWindow.windowSize = function (x: any) {
+    if (!arguments.length) {
+      return windowSize;
+    }
+    windowSize = x;
+    return slidingWindow;
+  };
 
-    slidingWindow.misc = function (x: any) {
-        if (!arguments.length) {
-            return misc;
-        }
-        misc = x;
-        return slidingWindow;
-    };
+  slidingWindow.misc = function (x: any) {
+    if (!arguments.length) {
+      return misc;
+    }
+    misc = x;
+    return slidingWindow;
+  };
 
-    slidingWindow.accumulator = function (x: any) {
-        if (!arguments.length) {
-            return accumulator;
-        }
-        accumulator = x;
-        return slidingWindow;
-    };
+  slidingWindow.accumulator = function (x: any) {
+    if (!arguments.length) {
+      return accumulator;
+    }
+    accumulator = x;
+    return slidingWindow;
+  };
 
-    slidingWindow.skipInitial = function (x: any) {
-        if (!arguments.length) {
-            return skipInitial;
-        }
-        skipInitial = x;
-        return slidingWindow;
-    };
+  slidingWindow.skipInitial = function (x: any) {
+    if (!arguments.length) {
+      return skipInitial;
+    }
+    skipInitial = x;
+    return slidingWindow;
+  };
 
-    slidingWindow.sourcePath = function (x: any) {
-        if (!arguments.length) {
-            return sourcePath;
-        }
-        sourcePath = x;
-        return slidingWindow;
-    };
+  slidingWindow.sourcePath = function (x: any) {
+    if (!arguments.length) {
+      return sourcePath;
+    }
+    sourcePath = x;
+    return slidingWindow;
+  };
 
-    slidingWindow.source = function (x: any) {
-        if (!arguments.length) {
-            return source;
-        }
-        source = x;
-        return slidingWindow;
-    };
+  slidingWindow.source = function (x: any) {
+    if (!arguments.length) {
+      return source;
+    }
+    source = x;
+    return slidingWindow;
+  };
 
-    return slidingWindow as SlidingWindow;
+  return slidingWindow as SlidingWindow;
 }

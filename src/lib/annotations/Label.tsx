@@ -1,110 +1,110 @@
-import { GenericComponent, functor, ChartCanvasContext } from "../core";
-import { ScaleContinuousNumeric } from "d3-scale";
-import * as React from "react";
+import { GenericComponent, functor, ChartCanvasContext } from '../core';
+import { ScaleContinuousNumeric } from 'd3-scale';
+import * as React from 'react';
 
 export interface LabelProps {
-    readonly datum?: any;
-    readonly fillStyle?: string | ((datum: any) => string);
-    readonly fontFamily?: string;
-    readonly fontSize?: number;
-    readonly fontWeight?: string;
-    readonly rotate?: number;
-    readonly selectCanvas?: (canvases: any) => any;
-    readonly text?: string | ((datum: any) => string);
-    readonly textAlign?: CanvasTextAlign;
-    readonly x:
-        | number
-        | ((xScale: ScaleContinuousNumeric<number, number>, xAccessor: any, datum: any, plotData: any[]) => number);
-    readonly xAccessor?: (datum: any) => any;
-    readonly xScale?: ScaleContinuousNumeric<number, number>;
-    readonly y: number | ((yScale: ScaleContinuousNumeric<number, number>, datum: any, plotData: any[]) => number);
-    readonly yScale?: ScaleContinuousNumeric<number, number>;
+  readonly datum?: any;
+  readonly fillStyle?: string | ((datum: any) => string);
+  readonly fontFamily?: string;
+  readonly fontSize?: number;
+  readonly fontWeight?: string;
+  readonly rotate?: number;
+  readonly selectCanvas?: (canvases: any) => any;
+  readonly text?: string | ((datum: any) => string);
+  readonly textAlign?: CanvasTextAlign;
+  readonly x:
+    | number
+    | ((xScale: ScaleContinuousNumeric<number, number>, xAccessor: any, datum: any, plotData: any[]) => number);
+  readonly xAccessor?: (datum: any) => any;
+  readonly xScale?: ScaleContinuousNumeric<number, number>;
+  readonly y: number | ((yScale: ScaleContinuousNumeric<number, number>, datum: any, plotData: any[]) => number);
+  readonly yScale?: ScaleContinuousNumeric<number, number>;
 }
 
 export class Label extends React.Component<LabelProps> {
-    public static defaultProps = {
-        fontFamily: "-apple-system, system-ui, Roboto, 'Helvetica Neue', Ubuntu, sans-serif",
-        fontSize: 64,
-        fontWeight: "bold",
-        fillStyle: "#dcdcdc",
-        rotate: 0,
-        x: ({ xScale, xAccessor, datum }: any) => xScale(xAccessor(datum)),
-        selectCanvas: (canvases: any) => canvases.bg,
-    };
+  public static defaultProps = {
+    fontFamily: "-apple-system, system-ui, Roboto, 'Helvetica Neue', Ubuntu, sans-serif",
+    fontSize: 64,
+    fontWeight: 'bold',
+    fillStyle: '#dcdcdc',
+    rotate: 0,
+    x: ({ xScale, xAccessor, datum }: any) => xScale(xAccessor(datum)),
+    selectCanvas: (canvases: any) => canvases.bg,
+  };
 
-    public static contextType = ChartCanvasContext;
+  public static contextType = ChartCanvasContext;
 
-    public render() {
-        const { selectCanvas } = this.props;
+  public render() {
+    const { selectCanvas } = this.props;
 
-        return <GenericComponent canvasToDraw={selectCanvas} canvasDraw={this.drawOnCanvas} drawOn={[]} />;
+    return <GenericComponent canvasToDraw={selectCanvas} canvasDraw={this.drawOnCanvas} drawOn={[]} />;
+  }
+
+  private readonly drawOnCanvas = (ctx: CanvasRenderingContext2D, moreProps: any) => {
+    ctx.save();
+
+    const { textAlign = 'center', fontFamily, fontSize, fontWeight, rotate } = this.props;
+
+    const { canvasOriginX, canvasOriginY, margin, ratio } = this.context;
+
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.scale(ratio, ratio);
+
+    if (canvasOriginX !== undefined) {
+      ctx.translate(canvasOriginX, canvasOriginY);
+    } else {
+      ctx.translate(margin.left + 0.5 * ratio, margin.top + 0.5 * ratio);
     }
 
-    private readonly drawOnCanvas = (ctx: CanvasRenderingContext2D, moreProps: any) => {
-        ctx.save();
+    const { xScale, chartConfig, xAccessor } = moreProps;
 
-        const { textAlign = "center", fontFamily, fontSize, fontWeight, rotate } = this.props;
+    const yScale = Array.isArray(chartConfig) || !chartConfig ? undefined : chartConfig.yScale;
 
-        const { canvasOriginX, canvasOriginY, margin, ratio } = this.context;
+    const { xPos, yPos, fillStyle, text } = this.helper(moreProps, xAccessor, xScale, yScale);
 
-        ctx.setTransform(1, 0, 0, 1, 0, 0);
-        ctx.scale(ratio, ratio);
+    ctx.save();
+    ctx.translate(xPos, yPos);
+    if (rotate !== undefined) {
+      const radians = (rotate / 180) * Math.PI;
 
-        if (canvasOriginX !== undefined) {
-            ctx.translate(canvasOriginX, canvasOriginY);
-        } else {
-            ctx.translate(margin.left + 0.5 * ratio, margin.top + 0.5 * ratio);
-        }
+      ctx.rotate(radians);
+    }
 
-        const { xScale, chartConfig, xAccessor } = moreProps;
+    if (fontFamily !== undefined) {
+      ctx.font = `${fontWeight} ${fontSize}px ${fontFamily}`;
+    }
+    if (fillStyle !== undefined) {
+      ctx.fillStyle = fillStyle;
+    }
+    if (textAlign !== undefined) {
+      ctx.textAlign = textAlign;
+    }
 
-        const yScale = Array.isArray(chartConfig) || !chartConfig ? undefined : chartConfig.yScale;
+    ctx.beginPath();
+    ctx.fillText(text, 0, 0);
+    ctx.restore();
+  };
 
-        const { xPos, yPos, fillStyle, text } = this.helper(moreProps, xAccessor, xScale, yScale);
+  private readonly helper = (
+    moreProps: any,
+    xAccessor: any,
+    xScale: ScaleContinuousNumeric<number, number>,
+    yScale: ScaleContinuousNumeric<number, number>,
+  ) => {
+    const { x, y, datum, fillStyle, text } = this.props;
 
-        ctx.save();
-        ctx.translate(xPos, yPos);
-        if (rotate !== undefined) {
-            const radians = (rotate / 180) * Math.PI;
+    const { plotData } = moreProps;
 
-            ctx.rotate(radians);
-        }
+    const xFunc = functor(x);
+    const yFunc = functor(y);
 
-        if (fontFamily !== undefined) {
-            ctx.font = `${fontWeight} ${fontSize}px ${fontFamily}`;
-        }
-        if (fillStyle !== undefined) {
-            ctx.fillStyle = fillStyle;
-        }
-        if (textAlign !== undefined) {
-            ctx.textAlign = textAlign;
-        }
+    const [xPos, yPos] = [xFunc({ xScale, xAccessor, datum, plotData }), yFunc({ yScale, datum, plotData })];
 
-        ctx.beginPath();
-        ctx.fillText(text, 0, 0);
-        ctx.restore();
+    return {
+      xPos,
+      yPos,
+      text: functor(text)(datum),
+      fillStyle: functor(fillStyle)(datum),
     };
-
-    private readonly helper = (
-        moreProps: any,
-        xAccessor: any,
-        xScale: ScaleContinuousNumeric<number, number>,
-        yScale: ScaleContinuousNumeric<number, number>,
-    ) => {
-        const { x, y, datum, fillStyle, text } = this.props;
-
-        const { plotData } = moreProps;
-
-        const xFunc = functor(x);
-        const yFunc = functor(y);
-
-        const [xPos, yPos] = [xFunc({ xScale, xAccessor, datum, plotData }), yFunc({ yScale, datum, plotData })];
-
-        return {
-            xPos,
-            yPos,
-            text: functor(text)(datum),
-            fillStyle: functor(fillStyle)(datum),
-        };
-    };
+  };
 }

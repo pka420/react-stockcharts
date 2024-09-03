@@ -1,91 +1,91 @@
-import * as React from "react";
+import * as React from 'react';
 
-import { getMouseCanvas, GenericChartComponent } from "../../core";
+import { getMouseCanvas, GenericChartComponent } from '../../core';
 
 export interface ClickableCircleProps {
-    readonly onDragStart?: (e: React.MouseEvent, moreProps: any) => void;
-    readonly onDrag?: (e: React.MouseEvent, moreProps: any) => void;
-    readonly onDragComplete?: (e: React.MouseEvent, moreProps: any) => void;
-    readonly strokeWidth: number;
-    readonly strokeStyle: string;
-    readonly fillStyle: string;
-    readonly r: number;
-    readonly cx?: number;
-    readonly cy?: number;
-    readonly className: string;
-    readonly show: boolean;
-    readonly interactiveCursorClass?: string;
-    readonly xyProvider?: (moreProps: any) => number[];
+  readonly onDragStart?: (e: React.MouseEvent, moreProps: any) => void;
+  readonly onDrag?: (e: React.MouseEvent, moreProps: any) => void;
+  readonly onDragComplete?: (e: React.MouseEvent, moreProps: any) => void;
+  readonly strokeWidth: number;
+  readonly strokeStyle: string;
+  readonly fillStyle: string;
+  readonly r: number;
+  readonly cx?: number;
+  readonly cy?: number;
+  readonly className: string;
+  readonly show: boolean;
+  readonly interactiveCursorClass?: string;
+  readonly xyProvider?: (moreProps: any) => number[];
 }
 
 export class ClickableCircle extends React.Component<ClickableCircleProps> {
-    public static defaultProps = {
-        className: "react-financial-charts-interactive-line-edge",
-        show: false,
-    };
+  public static defaultProps = {
+    className: 'react-financial-charts-interactive-line-edge',
+    show: false,
+  };
 
-    public render() {
-        const { interactiveCursorClass, onDragStart, onDrag, onDragComplete, show } = this.props;
+  public render() {
+    const { interactiveCursorClass, onDragStart, onDrag, onDragComplete, show } = this.props;
 
-        if (!show) {
-            return null;
-        }
-
-        return (
-            <GenericChartComponent
-                interactiveCursorClass={interactiveCursorClass}
-                selected
-                isHover={this.isHover}
-                onDragStart={onDragStart}
-                onDrag={onDrag}
-                onDragComplete={onDragComplete}
-                canvasDraw={this.drawOnCanvas}
-                canvasToDraw={getMouseCanvas}
-                drawOn={["pan", "mousemove", "drag"]}
-            />
-        );
+    if (!show) {
+      return null;
     }
 
-    private readonly drawOnCanvas = (ctx: CanvasRenderingContext2D, moreProps: any) => {
-        const { strokeStyle, strokeWidth, fillStyle, r } = this.props;
+    return (
+      <GenericChartComponent
+        interactiveCursorClass={interactiveCursorClass}
+        selected
+        isHover={this.isHover}
+        onDragStart={onDragStart}
+        onDrag={onDrag}
+        onDragComplete={onDragComplete}
+        canvasDraw={this.drawOnCanvas}
+        canvasToDraw={getMouseCanvas}
+        drawOn={['pan', 'mousemove', 'drag']}
+      />
+    );
+  }
 
-        ctx.lineWidth = strokeWidth;
-        ctx.fillStyle = fillStyle;
-        ctx.strokeStyle = strokeStyle;
+  private readonly drawOnCanvas = (ctx: CanvasRenderingContext2D, moreProps: any) => {
+    const { strokeStyle, strokeWidth, fillStyle, r } = this.props;
 
-        const [x, y] = this.helper(moreProps);
+    ctx.lineWidth = strokeWidth;
+    ctx.fillStyle = fillStyle;
+    ctx.strokeStyle = strokeStyle;
 
-        ctx.beginPath();
-        ctx.arc(x, y, r, 0, 2 * Math.PI, false);
-        ctx.fill();
-        ctx.stroke();
-    };
+    const [x, y] = this.helper(moreProps);
 
-    private readonly isHover = (moreProps: any) => {
-        const { mouseXY } = moreProps;
-        const r = this.props.r + 7;
-        const [x, y] = this.helper(moreProps);
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, 2 * Math.PI, false);
+    ctx.fill();
+    ctx.stroke();
+  };
 
-        const [mx, my] = mouseXY;
-        const hover = x - r < mx && mx < x + r && y - r < my && my < y + r;
+  private readonly isHover = (moreProps: any) => {
+    const { mouseXY } = moreProps;
+    const r = this.props.r + 7;
+    const [x, y] = this.helper(moreProps);
 
-        return hover;
-    };
+    const [mx, my] = mouseXY;
+    const hover = x - r < mx && mx < x + r && y - r < my && my < y + r;
 
-    private readonly helper = (moreProps: any) => {
-        const { xyProvider, cx, cy } = this.props;
+    return hover;
+  };
 
-        if (xyProvider !== undefined) {
-            return xyProvider(moreProps);
-        }
+  private readonly helper = (moreProps: any) => {
+    const { xyProvider, cx, cy } = this.props;
 
-        const {
-            xScale,
-            chartConfig: { yScale },
-        } = moreProps;
+    if (xyProvider !== undefined) {
+      return xyProvider(moreProps);
+    }
 
-        const x = xScale(cx);
-        const y = yScale(cy);
-        return [x, y];
-    };
+    const {
+      xScale,
+      chartConfig: { yScale },
+    } = moreProps;
+
+    const x = xScale(cx);
+    const y = yScale(cy);
+    return [x, y];
+  };
 }
