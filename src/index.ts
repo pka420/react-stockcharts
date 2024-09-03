@@ -17,4 +17,4 @@ export * from './lib/series';
 export * from './lib/tooltip';
 export * from './lib/utils';
 
-export const version = '0.0.1';
+export const version = '0.0.2';
