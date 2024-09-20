@@ -21,5 +21,5 @@ try {
 	});
 } catch (er) {
 	console.error("package.json parse error: ", er);
-	// process.exit(1);
+	process.exit(1);
 }
