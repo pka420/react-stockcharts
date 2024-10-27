@@ -9,7 +9,7 @@
   "license": "MIT",
   "scripts": {
     "clean": "rm -rf ./build",
-    "watch": "ncp docs/data public/data && webpack serve --config config/webpack.config.js --mode development",
+    "watch": "webpack serve --config config/webpack.config.js --mode development",
     "docs": "npm run build:docs && ncp docs/images/ build/images && ncp docs/data/ build/data",
     "build:docs": "echo 'DOCS - BUILD' && webpack --config config/webpack.config.js --env docs --mode production",
     "prebuild": "npm run clean",
